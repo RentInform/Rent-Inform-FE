@@ -72,3 +72,6 @@ group :test do
   gem 'shoulda-matchers'
   gem 'launchy'
 end
+
+# Tailwind CSS is a utility-first CSS framework [https://tailwindcss.com]
+gem "tailwindcss-rails"
