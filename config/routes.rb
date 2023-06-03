@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root '/', to: 'welcome#index'
   get 'auth/google_oauth2/callback', to: 'sessions#create'
   get '/dashboard', to: 'dashboard#show'
 end
