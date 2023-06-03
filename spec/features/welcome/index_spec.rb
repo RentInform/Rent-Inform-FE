@@ -38,11 +38,13 @@ RSpec.describe "landing page" do
   end
 
   it 'has bottom page content' do
-    expect(page).to have_content("With RentInform")
-    expect(page).to have_content("City Code Compliance Check")
-    expect(page).to have_content("Walk Score")
-    expect(page).to have_content("Bike Score")
-    expect(page).to have_content("Transit Score")
-    expect(page).to have_content("Safe Place Score")
+    within "#bottom_page" do
+      expect(page).to have_content("With RentInform")
+      expect(page).to have_content("City Code Compliance Check")
+      expect(page).to have_content("Walk Score")
+      expect(page).to have_content("Bike Score")
+      expect(page).to have_content("Transit Score")
+      expect(page).to have_content("Safe Place Score")
+    end
   end
 end
