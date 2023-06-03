@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_or_create_by(email: email)
     user.update(google_id: google_id, token: token)
 
-    #session[:user_id] = user.id
+    session[:user_id] = user.id
 
     redirect_to '/dashboard'
   end
