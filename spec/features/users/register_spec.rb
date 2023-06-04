@@ -28,7 +28,6 @@ RSpec.describe "user registration" do
       expect(page).to have_content('Already have an account?')
       expect(page).to have_link('Log In')
     end
-    save_and_open_page
   end
 
   it 'as a user when I click the login button, I am take to the log in page' do
@@ -36,7 +35,7 @@ RSpec.describe "user registration" do
       click_link 'Log In'
       expect(current_path).to eq(login_path)
     end
-    
+
     visit login_path
     expect(page).to have_content('RentInform#Log In')
   end
