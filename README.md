@@ -30,7 +30,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/RentInform/Rent-Inform-FE">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="app/assets/images/philadelphia_004_1276_pano_up.jpg" alt="Logo" width="900" height="315">
   </a>
 
 <h3 align="center">RentInform</h3>
@@ -198,6 +198,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 * [Install Tailwind CSS with Ruby on Rails](https://tailwindcss.com/docs/guides/ruby-on-rails)
 * [How to Setup Tailwind 3 on Rails 7](https://dev.to/software_writer/how-to-setup-tailwind-3-on-rails-7-2dbo)
+* [Banner Image - Philly Skyline](https://www.skylinescenes.com/products/philadelphia-skyline-panorama-2-2-2)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -222,11 +223,11 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [stephen-li-url]: https://www.linkedin.com/in/smcphee19/
 [product-screenshot]: images/screenshot.png
 [Ruby]: https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white
-[Ruby-url]: https://.org/](https://www.ruby-lang.org/en/
+[Ruby-url]: https://www.ruby-lang.org/en/
 [Rails]: https://img.shields.io/badge/Ruby_on_Rails-CC0000?style=for-the-badge&logo=ruby-on-rails&logoColor=white
 [Rails-url]: https://rubyonrails.org/
 [Tailwind]: https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white
-[Tailwind-url]: [https://vuejs.org/](https://tailwindcss.com/)
+[Tailwind-url]: https://tailwindcss.com/
 [Postgres]: https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white
 [Postgres-url]: https://www.postgresql.org/
 [Redis]:  	https://img.shields.io/badge/redis-%23DD0031.svg?&style=for-the-badge&logo=redis&logoColor=white
