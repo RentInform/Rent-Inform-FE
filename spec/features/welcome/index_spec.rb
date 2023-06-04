@@ -6,6 +6,7 @@ RSpec.describe "landing page" do
   end
 
   it 'has RentInform on the top of the screen' do
+    save_and_open_page
     expect(page).to have_content("RentInform")
   end
 
