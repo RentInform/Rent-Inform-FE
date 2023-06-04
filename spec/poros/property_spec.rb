@@ -10,7 +10,9 @@ RSpec.describe Property do
       walk_score: "89",
       bike_score: "23",
       transit_score: "57",
-      safety_score: "99"
+      safety_score: "99",
+      city: "Philadelphia",
+      state: "PA"
     }
     property = Property.new(data)
 

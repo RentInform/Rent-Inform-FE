@@ -13,6 +13,7 @@ class Property
     @walk_score = data[:walk_score]
     @transit_score = data[:transit_score]
     @safety_score = data[:safety_score]
+    @city = data[:city]
+    @state = data[:state]
   end
-              
 end
