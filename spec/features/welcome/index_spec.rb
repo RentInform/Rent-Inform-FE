@@ -54,4 +54,11 @@ RSpec.describe "landing page" do
     expect(current_path).to eq(sign_up_path)
     expect(page).to have_content('RentInform#Sign Up')
   end
+
+  it 'login link takes you to login page' do
+    click_link "Login"
+
+    expect(current_path).to eq(login_path)
+    expect(page).to have_content('RentInform#Log In')
+  end
 end
