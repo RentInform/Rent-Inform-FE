@@ -1,6 +1,6 @@
 class RentInformService
 
-  def get_property(url, street, zip)
+  def get_property(street, zip)
     get_url("/api/v0/search?street=#{street}&zip=#{zip}")
   end
 

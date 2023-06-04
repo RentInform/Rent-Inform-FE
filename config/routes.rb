@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get '/auth/google_oauth2', as: 'google_login'
   get '/auth/google_oauth2/callback', to: 'sessions#create'
-  get '/dashboard', to: 'dashboard#show'
+  get '/dashboard', to: 'dashboard#show', as: 'dashboard'
   get '/sign_up', to: 'users#new'
   get '/login', to: 'sessions#new'
- delete '/logout', to: 'sessions#destroy'
+  delete '/logout', to: 'sessions#destroy'
 end

@@ -15,7 +15,7 @@ RSpec.describe RentInformService do
   describe 'instance methods' do
     it '#get_property' do
       service = RentInformService.new
-      property = service.get_property('https://test.com/return_json/properties.json', '123 Main Street', '19148')
+      property = service.get_property('123 Main Street', '19148')
       
       expect(property).to be_a(Hash)
 

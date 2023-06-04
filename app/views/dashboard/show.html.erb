@@ -1,4 +1,32 @@
 Welcome <%= @user %>!
 <div id="Logout">
-<%= button_to "Log Out", logout_path, method:: delete %>
+<%= button_to "Log Out", logout_path, method: :delete %>
+</div><br>
+
+<div id="home">
+  <%= button_to "Home", root_path, method: :get %>
+</div><br>
+
+<div id="find-property">
+  <h3>Find a Property</h3>
+</div><br>
+<div id="search">
+
+ <%=form_with url: dashboard_path, method: :get do |f| %>
+     <%= f.search_field :search_street, placeholder: '123 Main Street' %>
+     <%= f.search_field :search_zip, placeholder: '12345' %>
+     <%= f.submit "Search" %>
+  <% end %>
+</div><br>
+<div id="Result" >
+  <% if @property %>
+    <%= @property.street %>, <%= @property.zip %><br>
+    Bike Score: <%= @property.bike_score %>
+    Walk Score: <%= @property.walk_score %>
+    Safety Score: <%= @property.safety_score%>
+    Transit Score: <%= @property.transit_score %><br>
+  <% end %>
+</div>
+<div id="Saved">
+  <h3>Saved</h3>
 </div><br>
