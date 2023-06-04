@@ -1,4 +1,12 @@
 Welcome <%= @user %>!
 <div id="Logout">
-<%= button_to "Log Out", logout_path, method:: delete %>
+<%= button_to "Log Out", logout_path, method: :delete %>
+</div><br>
+
+<div id="home">
+  <%= button_to "Home", root_path, method: :get %>
+</div><br>
+
+<div id="find-property">
+  <h3>Find a Property</h3>
 </div><br>
