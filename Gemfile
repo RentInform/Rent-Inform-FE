@@ -79,6 +79,7 @@ group :test do
   gem 'launchy'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'webmock'
 end
 
 # Tailwind CSS is a utility-first CSS framework [https://tailwindcss.com]
