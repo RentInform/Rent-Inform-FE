@@ -83,4 +83,13 @@ RSpec.describe "dashboard show page" do
     expect(page).to have_content("Transit Score: 57")
     expect(page).to have_content("Safety Score: 99")
   end
+
+  describe 'sad path' do
+    it 'redirects to home page if not logged in' do
+      visit dashboard_path
+
+      expect(page).to have_content("You must be logged in to view this page")
+      expect(current_path).to eq(root_path)
+    end
+  end
 end
