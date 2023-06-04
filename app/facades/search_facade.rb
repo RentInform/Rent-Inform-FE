@@ -20,7 +20,9 @@ class SearchFacade
         bike_score: property[:data][:attributes][:bike_score],
         walk_score: property[:data][:attributes][:walk_score],
         safety_score: property[:data][:attributes][:safety_score],
-        transit_score: property[:data][:attributes][:transit_score]
+        transit_score: property[:data][:attributes][:transit_score],
+        city: property[:data][:attributes][:city],
+        state: property[:data][:attributes][:state]
 
       }
 

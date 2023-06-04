@@ -15,7 +15,6 @@ RSpec.describe SearchFacade do
     it '#property' do
       facade = SearchFacade.new('123 Main Street', '19148')
       property = facade.property
-      
 
       expect(property).to be_a(Property)
       expect(property.street).to eq('123 Main Street')
@@ -24,6 +23,8 @@ RSpec.describe SearchFacade do
       expect(property.walk_score).to eq('89')
       expect(property.transit_score).to eq('57')
       expect(property.safety_score).to eq('99')
+      expect(property.city).to eq('Philadelphia')
+      expect(property.state).to eq('PA')
     end
   end
 end

@@ -4,7 +4,9 @@ class Property
                :bike_score,
                :walk_score,
                :transit_score,
-               :safety_score  
+               :safety_score,
+               :city,
+               :state  
 
   def initialize(data)
     @street = data[:street]
