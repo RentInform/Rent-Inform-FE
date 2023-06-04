@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe RentInformService do
-  before(:each) do
+RSpec.describe SearchFacade do
+  before :each do
     stub_request(:get, "https://test.com/api/v0/search?street=123%20Main%20Street&zip=19148").
          with(
            headers: {
@@ -11,11 +11,10 @@ RSpec.describe RentInformService do
            })
     .to_return(status: 200, body: File.read('./spec/fixtures/property_1.json'))
   end
-
   describe 'instance methods' do
-    it '#get_property' do
-      service = RentInformService.new
-      property = service.get_property('123 Main Street', '19148')
+    it '#property' do
+      facade = SearchFacade.new('123 Main Street', '19148')
+      property = facade.property
       
       expect(property).to be_a(Hash)
 
