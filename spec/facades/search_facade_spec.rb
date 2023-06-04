@@ -16,25 +16,14 @@ RSpec.describe SearchFacade do
       facade = SearchFacade.new('123 Main Street', '19148')
       property = facade.property
       
-      expect(property).to be_a(Hash)
 
-      expect(property).to have_key(:data)
-      expect(property[:data]).to be_a(Hash)
-      expect(property[:data]).to have_key(:id)
-      expect(property[:data][:id]).to be_a(String)
-
-      expect(property[:data]).to have_key(:type)
-      expect(property[:data][:type]).to be_a(String)
-
-      attributes = property[:data][:attributes]
-      expect(attributes[:street]).to eq('123 Main Street')
-      expect(attributes[:city]).to eq('Philadelphia')
-      expect(attributes[:state]).to eq('PA')
-      expect(attributes[:zip]).to eq('19148')
-      expect(attributes[:walk_score]).to eq("89")
-      expect(attributes[:bike_score]).to eq("23")
-      expect(attributes[:transit_score]).to eq("57")
-      expect(attributes[:safety_score]).to eq("99")
+      expect(property).to be_a(Property)
+      expect(property.street).to eq('123 Main Street')
+      expect(property.zip).to eq('19148')
+      expect(property.bike_score).to eq('23')
+      expect(property.walk_score).to eq('89')
+      expect(property.transit_score).to eq('57')
+      expect(property.safety_score).to eq('99')
     end
   end
 end
