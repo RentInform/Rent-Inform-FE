@@ -7,7 +7,7 @@ RSpec.describe "user registration" do
 
   it 'as a user, I see a disclaimer about google' do
     within '#disclaimer' do
-      expect(page).to have_content('RentInfrom uses Google for new user creation')
+      expect(page).to have_content('RentInform uses Google for new user creation')
     end
   end
 
