@@ -47,4 +47,11 @@ RSpec.describe "landing page" do
       expect(page).to have_content("Safe Place Score")
     end
   end
+
+  it 'sign up link takes you to sign up page' do
+    click_link "Sign Up"
+
+    expect(current_path).to eq(sign_up_path)
+    expect(page).to have_content('RentInform#Sign Up')
+  end
 end
