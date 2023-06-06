@@ -74,8 +74,10 @@ RSpec.describe "dashboard show page" do
     fill_in :search_street, with: "123 Main Street"
     fill_in :search_zip, with: "19148"
     click_button "Search"
+    expect(current_path).to eq(dashboard_path)
+    
     within "#Result" do
-      expect(current_path).to eq(dashboard_path)
+      expect(page).to have_content("This Property is on the Certified Rentals list!")
       expect(page).to have_content("123 Main Street")
       expect(page).to have_content("19148")
       expect(page).to have_content("Walk Score: 89")
