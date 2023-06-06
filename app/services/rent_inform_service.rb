@@ -12,7 +12,7 @@ class RentInformService
     end
 
     def conn
-      Faraday.new(url: 'https://test.com/return_json/properties.json') do |faraday|
+      Faraday.new(url: 'https://sheltered-harbor-92742.herokuapp.com') do |faraday|
       end
     end
 end
