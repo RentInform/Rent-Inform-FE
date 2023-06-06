@@ -30,4 +30,14 @@ Welcome <%= @user %>!
 </div>
 <div id="Saved">
   <h3>Saved</h3>
+  <% if @properties.empty? %>
+      Save a property to view it here!
+  <% else %>
+    <% @user_properties.each.do |property|%>
+    <div id="property-<%= property.id %>">
+      <%= #button that shows property address, zip, %>
+      </div>
+    <% end %>
+  <% end %>
+    <%= %>
 </div><br>

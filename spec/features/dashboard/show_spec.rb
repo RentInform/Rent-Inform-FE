@@ -10,6 +10,7 @@ RSpec.describe "dashboard show page" do
      'User-Agent'=>'Faraday v2.7.5'
       })
     .to_return(status: 200, body: File.read('./spec/fixtures/property_1.json'))
+    stub_request(:get, "https://test.com/api/v0/search?street=123%20Main%20Street&zip=19148").
   end
   it 'has a button to log out' do
     user = create(:user)
@@ -93,6 +94,28 @@ RSpec.describe "dashboard show page" do
 
       expect(page).to have_content("You must be logged in to view this page")
       expect(current_path).to eq(root_path)
+    end
+
+    it 'does not render property if no result is found' do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+
+      visit dashboard_path
+
+      fill_in :search_street, with: "123 Main Street"
+      fill_in :search_zip, with: "19148"
+      click_button "Search"
+      expect(current_path).to eq(dashboard_path)
+      
+      within "#Result" do
+        expect(page).to have_content("This Property is on the Certified Rentals list!")
+        expect(page).to have_content("123 Main Street")
+        expect(page).to have_content("19148")
+        expect(page).to have_content("Walk Score: 89")
+        expect(page).to have_content("Bike Score: 23")
+        expect(page).to have_content("Transit Score: 57")
+        expect(page).to have_content("Safety Score: 99")
+      end
     end
   end
 end
