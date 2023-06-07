@@ -221,7 +221,7 @@ RSpec.describe "dashboard show page" do
       fill_in :search_zip, with: "84606"
       click_button "Search"
       expect(current_path).to eq(dashboard_path)
-      save_and_open_page
+
       within "#Result" do
         expect(page).to_not have_content("This Property is on the Certified Rentals list!")
         expect(page).to have_content("This property is not on the Certified Rentals list.")
