@@ -35,7 +35,7 @@ Welcome <%= @user %>!
   <% else %>
     <% @user_properties.each.do |property|%>
     <div id="property-<%= property.id %>">
-      <%= #button that shows property address, zip, %>
+      <%= property.street %>, <%= property.zip %><br>
       </div>
     <% end %>
   <% end %>
