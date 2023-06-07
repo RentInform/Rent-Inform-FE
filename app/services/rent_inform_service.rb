@@ -4,6 +4,10 @@ class RentInformService
     get_url("/api/v0/search?street=#{street}&zip=#{zip}")
   end
 
+  def get_user_properties(user_id)
+    get_url("/api/v0/user_properties?user_id=#{user_id}")
+  end
+
   private
 
     def get_url(url)
@@ -12,7 +16,7 @@ class RentInformService
     end
 
     def conn
-      Faraday.new(url: 'https://test.com/return_json/properties.json') do |faraday|
+      Faraday.new(url: 'https://sheltered-harbor-92742.herokuapp.com') do |faraday|
       end
     end
 end

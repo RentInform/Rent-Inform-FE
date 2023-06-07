@@ -20,13 +20,24 @@ Welcome <%= @user %>!
 </div><br>
 <div id="Result" >
   <% if @property %>
-    <%= @property.street %>, <%= @property.zip %><br>
-    Bike Score: <%= @property.bike_score %>
-    Walk Score: <%= @property.walk_score %>
-    Safety Score: <%= @property.safety_score%>
-    Transit Score: <%= @property.transit_score %><br>
+    This Property is on the Certified Rentals list!
+      <%= @property.street %>, <%= @property.zip %><br>
+      Bike Score: <%= @property.bike_score %>
+      Walk Score: <%= @property.walk_score %>
+      Safety Score: <%= @property.safety_score%>
+      Transit Score: <%= @property.transit_score %><br>
   <% end %>
 </div>
 <div id="Saved">
   <h3>Saved</h3>
+  <% if @user_properties.empty? %>
+      Save a property to view it here!
+  <% else %>
+    <% @user_properties.each do |property|%>
+    <div id="property-<%= property.street %>">
+      <%= property.street %>, <%= property.zip %><br>
+      </div>
+    <% end %>
+  <% end %>
+    <%= %>
 </div><br>
