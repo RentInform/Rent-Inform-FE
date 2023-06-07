@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.describe RentInformService do
   before(:each) do
-    stub_request(:get, "https://test.com/api/v0/search?street=123%20Main%20Street&zip=19148").
-         with(
+    stub_request(:get, "https://sheltered-harbor-92742.herokuapp.com/api/v0/search?street=123%20Main%20Street&zip=19148")
+         .with(
            headers: {
           'Accept'=>'*/*',
           'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
