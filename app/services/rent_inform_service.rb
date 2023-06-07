@@ -7,6 +7,10 @@ class RentInformService
   def get_user_properties(user_id)
     get_url("/api/v0/user_properties?user_id=#{user_id}")
   end
+  
+  def get_property_by_id(user_id, property_id)
+    get_url("/api/v0/user_properties?user_id=#{user_id}&property_id=#{property_id}")
+  end
 
   private
 
