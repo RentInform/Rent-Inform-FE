@@ -134,25 +134,26 @@ RSpec.describe "dashboard show page" do
     xit 'does not render property if no result is found' do
       #this test is all wrong, needs it's own stub probably
       #and to call .to_not have_content
-      @user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+     
+      # @user = create(:user)
+      # allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
 
-      visit dashboard_path
+      # visit dashboard_path
 
-      fill_in :search_street, with: "123 Main Street"
-      fill_in :search_zip, with: "19148"
-      click_button "Search"
-      expect(current_path).to eq(dashboard_path)
+      # fill_in :search_street, with: "123 Main Street"
+      # fill_in :search_zip, with: "19148"
+      # click_button "Search"
+      # expect(current_path).to eq(dashboard_path)
       
-      within "#Result" do
-        expect(page).to have_content("This Property is on the Certified Rentals list!")
-        expect(page).to have_content("123 Main Street")
-        expect(page).to have_content("19148")
-        expect(page).to have_content("Walk Score: 89")
-        expect(page).to have_content("Bike Score: 23")
-        expect(page).to have_content("Transit Score: 57")
-        expect(page).to have_content("Safety Score: 99")
-      end
+      # within "#Result" do
+      #   expect(page).to have_content("This Property is on the Certified Rentals list!")
+      #   expect(page).to have_content("123 Main Street")
+      #   expect(page).to have_content("19148")
+      #   expect(page).to have_content("Walk Score: 89")
+      #   expect(page).to have_content("Bike Score: 23")
+      #   expect(page).to have_content("Transit Score: 57")
+      #   expect(page).to have_content("Safety Score: 99")
+      # end
     end
   end
 end
