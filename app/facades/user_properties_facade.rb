@@ -7,7 +7,7 @@ class UserPropertiesFacade
     user_properties_data ||= service.get_user_properties(@user_id)
 
     user_properties = user_properties_data[:data]
-
+    
     user_properties.map do |property|
       UserProperty.new(format_property(property))
     end
