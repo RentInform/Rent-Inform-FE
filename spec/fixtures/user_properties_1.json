@@ -3,7 +3,7 @@
            { "type": "property",
              "id": "1",
              "attributes": { 
-                 "street": "123 Main Street",
+                 "street": "100 Nowhere Street",
                  "city": "Philadelphia",
                  "state": "PA",
                  "zip": "19148"
@@ -12,7 +12,7 @@
            { "type": "property",
              "id": "2",
              "attributes": { 
-                 "street": "123 Main Street",
+                 "street": "456 Center Street",
                  "city": "Philadelphia",
                  "state": "PA",
                  "zip": "19148"
@@ -20,7 +20,8 @@
            },
            { "type": "property",
              "id": "3",
-             "attributes": {                    "street": "123 Main Street",
+             "attributes": {
+                "street": "789 Memory Lane",
                  "city": "Philadelphia",
                  "state": "PA",
                  "zip": "19148"

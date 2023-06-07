@@ -30,11 +30,11 @@ Welcome <%= @user %>!
 </div>
 <div id="Saved">
   <h3>Saved</h3>
-  <% if @properties.empty? %>
+  <% if @user_properties.empty? %>
       Save a property to view it here!
   <% else %>
-    <% @user_properties.each.do |property|%>
-    <div id="property-<%= property.id %>">
+    <% @user_properties.each do |property|%>
+    <div id="property-<%= property.street %>">
       <%= property.street %>, <%= property.zip %><br>
       </div>
     <% end %>
