@@ -2,7 +2,8 @@ class UserProperty
   attr_reader :street,
                :zip,
                :city,
-               :state  
+               :state,
+               :id  
 
   def initialize(data)
     @street = data[:street]
