@@ -5,7 +5,16 @@ RSpec.describe "dashboard show page" do
     before :each do
       @user = create(:user, id: 420)
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
-      
+   
+      stub_request(:get, "https://sheltered-harbor-92742.herokuapp.com/api/v0/user_properties?property_id=2&user_id=420")
+      .with(
+        headers: {
+       'Accept'=>'*/*',
+       'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       'User-Agent'=>'Faraday v2.7.5'
+        })
+      .to_return(status: 200, body: File.read('./spec/fixtures/property_2.json'))
+
       stub_request(:get, "https://sheltered-harbor-92742.herokuapp.com/api/v0/search?street=123%20Main%20Street&zip=19148")
       .with(
         headers: {
@@ -91,6 +100,59 @@ RSpec.describe "dashboard show page" do
         expect(page).to have_content("100 Nowhere Street")
         expect(page).to have_content("456 Center Street")
         expect(page).to have_content("789 Memory Lane")
+      end
+    end
+
+    it 'displays property details when user clicks more details' do
+      visit dashboard_path
+
+      within "#property-2" do
+        click_button "More Details"
+        expect(current_path).to eq('/dashboard')
+      end
+
+      within "#Result" do
+        expect(page).to have_content("This Property is on the Certified Rentals list!")
+        expect(page).to have_content("456 Center Street")
+        expect(page).to have_content("19148")
+        expect(page).to have_content("Walk Score: 55")
+        expect(page).to have_content("Bike Score: 73")
+        expect(page).to have_content("Transit Score: 97")
+        expect(page).to have_content("Safety Score: 65")
+      end
+    end
+
+    it 'can show a searched property, then show more details' do
+      visit dashboard_path
+
+      fill_in :search_street, with: "123 Main Street"
+      fill_in :search_zip, with: "19148"
+      click_button "Search"
+      expect(current_path).to eq(dashboard_path)
+
+      within "#Result" do
+        expect(page).to have_content("This Property is on the Certified Rentals list!")
+        expect(page).to have_content("123 Main Street")
+        expect(page).to have_content("19148")
+        expect(page).to have_content("Walk Score: 89")
+        expect(page).to have_content("Bike Score: 23")
+        expect(page).to have_content("Transit Score: 57")
+        expect(page).to have_content("Safety Score: 99")
+      end
+
+      within "#property-2" do
+        click_button "More Details"
+        expect(current_path).to eq('/dashboard')
+      end
+
+      within "#Result" do
+        expect(page).to have_content("This Property is on the Certified Rentals list!")
+        expect(page).to have_content("456 Center Street")
+        expect(page).to have_content("19148")
+        expect(page).to have_content("Walk Score: 55")
+        expect(page).to have_content("Bike Score: 73")
+        expect(page).to have_content("Transit Score: 97")
+        expect(page).to have_content("Safety Score: 65")
       end
     end
   end
