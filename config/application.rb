@@ -33,5 +33,8 @@ module RentInformFe
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    # serve static assets for heroku
+    config.serve_static_assets = true
   end
 end
