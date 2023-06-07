@@ -19,14 +19,18 @@ Welcome <%= @user %>!
   <% end %>
 </div><br>
 <div id="Result" >
-  <% if @property %>
+
+   <% if @property.is_a? SearchError %>
+   This property is not on the Certified Rentals list.
+  <% elsif @property.is_a? Property %>
     This Property is on the Certified Rentals list!
-      <%= @property.street %>, <%= @property.zip %><br>
-      Bike Score: <%= @property.bike_score %>
-      Walk Score: <%= @property.walk_score %>
-      Safety Score: <%= @property.safety_score%>
-      Transit Score: <%= @property.transit_score %><br>
+    <%= @property.street %>, <%= @property.zip %><br>
+    Bike Score: <%= @property.bike_score %>
+    Walk Score: <%= @property.walk_score %>
+    Safety Score: <%= @property.safety_score%>
+    Transit Score: <%= @property.transit_score %><br>
   <% end %>
+
 </div>
 <div id="Saved">
   <h3>Saved</h3>

@@ -7,11 +7,18 @@ class SearchFacade
 
   def property
     property ||= service.get_property(@street, @zip)
-
-    Property.new(format_property(property))
+    if property[:data].nil?
+      SearchError.new
+    else
+      Property.new(format_property(property))
+    end
   end
 
   private
+
+    def no_property
+      
+    end
 
     def format_property(property)
       {
