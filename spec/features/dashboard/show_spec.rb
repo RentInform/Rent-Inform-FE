@@ -113,6 +113,24 @@ RSpec.describe "dashboard show page" do
       expect(current_path).to eq(root_path)
     end
 
+    it 'does not render user_properties if none are found' do
+      user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      stub_request(:get, "https://sheltered-harbor-92742.herokuapp.com/api/v0/user_properties?user_id=#{user.id}")
+      .with(
+        headers: {
+       'Accept'=>'*/*',
+       'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       'User-Agent'=>'Faraday v2.7.5'
+        })
+      .to_return(status: 200, body: File.read('./spec/fixtures/no_user_properties.json'))
+
+
+      visit dashboard_path
+
+      expect(page).to have_content("Save a property to view it here!")
+    end
+
     xit 'does not render property if no result is found' do
       #this test is all wrong, needs it's own stub probably
       #and to call .to_not have_content
