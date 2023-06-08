@@ -1,51 +1,74 @@
-Welcome <%= @user %>!
+<div style='display: flex; flex-direction: column'>
+<p>Welcome <%= @user %>!</p>
 <div id="Logout">
-<%= button_to "Log Out", logout_path, method: :delete %>
-</div><br>
+  <%= button_to "Log Out", logout_path, method: :delete %>
+</div>
 
 <div id="home">
   <%= button_to "Home", root_path, method: :get %>
-</div><br>
+</div>
 
 <div id="find-property">
   <h3>Find a Property</h3>
-</div><br>
-<div id="search">
+</div>
 
+<div id="search">
  <%=form_with url: dashboard_path, method: :get do |f| %>
      <%= f.search_field :search_street, placeholder: '123 Main Street' %>
      <%= f.search_field :search_zip, placeholder: '12345' %>
      <%= f.submit "Search" %>
   <% end %>
-</div><br>
-<div id="Result" >
+</div>
 
-   <% if @property.is_a? SearchError %>
-   This property is not on the Certified Rentals list.
+<div id="Result" >
+  <% if @property.is_a? SearchError %>
+    This property is not on the Certified Rentals list.
   <% elsif @property.is_a? Property %>
-    This Property is on the Certified Rentals list!
     <%= @property.street %>, <%= @property.zip %><br>
+    Certified to Rent:
     Bike Score: <%= @property.bike_score %>
     Walk Score: <%= @property.walk_score %>
     Safety Score: <%= @property.safety_score%>
     Transit Score: <%= @property.transit_score %><br>
-  <% end %>
 
+    <% if !prop_ids(@user_properties).include?(@property.id)%>
+        <%= form_with url: user_properties_path, method: :post do |f| %>
+          <%= f.hidden_field :user_id, value: @user.id%>
+          <%= f.hidden_field :property_id, value: @property.id%>
+          <%= f.submit "Save" %>
+        <% end %>
+    <% else %>
+        <%= form_with url: user_properties_path, method: :delete do |f| %>
+          <%= f.hidden_field :user_id, value: @user.id%>
+          <%= f.hidden_field :property_id, value: @property.id%>
+          <%= f.submit "Unsave" %>
+        <% end %>
+    <% end %>
+  <% end %>
 </div>
+
 <div id="Saved">
-  <h3>Saved</h3>
+  <h3>Saved Properties</h3>
   <% if @user_properties.empty? %>
       Save a property to view it here!
   <% else %>
     <% @user_properties.each do |property|%>
       <div id="property-<%= property.id %>">
+        <%= property.street %>, <%= property.zip %><br>
+
         <%= form_with url: dashboard_path, method: :get do |f| %>
           <%= f.hidden_field :user_id, value: @user.id%>
           <%= f.hidden_field :property_id, value: property.id%>
           <%= f.submit "More Details" %>
         <% end %>
-        <%= property.street %>, <%= property.zip %><br>
-        </div>
+
+        <%= form_with url: user_properties_path, method: :delete do |f| %>
+          <%= f.hidden_field :user_id, value: @user.id%>
+          <%= f.hidden_field :property_id, value: property.id%>
+          <%= f.submit "Unsave" %>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
-</div><br>
+</div>
+</div>
