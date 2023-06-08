@@ -6,6 +6,8 @@ class SearchFacade
   end
 
   def property
+    return SearchError.new if @street.count("a-zA-Z") == 0  
+    
     property ||= service.get_property(@street, @zip)
     if property[:data].nil?
       SearchError.new
