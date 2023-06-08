@@ -29,6 +29,16 @@
         "state": "PA",
         "zip": "19148"
       }
+    },
+    {
+      "type": "property",
+      "id": "1",
+      "attributes": {
+        "street": "123 Main Street",
+        "city": "Philadelphia",
+        "state": "PA",
+        "zip": "19148"
+      }
     }
   ]
 }

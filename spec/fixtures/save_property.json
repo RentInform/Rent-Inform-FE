@@ -1,0 +1,10 @@
+{
+  "data": {
+    "type": "user_property",
+    "id": "1",
+    "attributes": {
+      "user_id": "12345",
+      "property_id": "98765"
+    }
+  }
+}
