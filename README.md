@@ -67,9 +67,9 @@
         <li><a href="#installation">Installation</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#testing">Testing</a></li>
+    <li><a href="#testing">Wire Frames</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#acknowledgments">Acknowledgments</a></li>
@@ -81,9 +81,19 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<img src="https://user-images.githubusercontent.com/120869196/244508852-ba6ffa81-7ad6-4ff0-9b8c-31a73fc9ce5f.jpeg">
 
 RentInform is a civic data tool designed to help prospective Philadelphia renters gather information about potential new homes, avoid financial or health hazards, and make informed renting decisions to best meet their household's needs.
+
+The front end of this app does . . . .
+
+- [Produciton Website](https://mysterious-escarpment-07313.herokuapp.com/)
+- [Backend Service](https://sheltered-harbor-92742.herokuapp.com/)
+  - To reach endpoint append `/api/v0/search?street='123-main-street'&zip='12345'`
+  - See more endpoints [here](https://github.com/RentInform/Rent-Inform-BE)
+- Github repositories:
+  * Front End: [![Github][Github]][project-fe-gh-url]
+  * Back End: [![Github][Github]][project-be-gh-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -96,9 +106,15 @@ RentInform is a civic data tool designed to help prospective Philadelphia renter
 * [![Tailwind][Tailwind]][Tailwind-url]
 * [![PostgreSQL][Postgres]][Postgres-url]
 * [![CircleCI][CircleCI]][CircleCI-url]
+* [![Heroku][Heroku]][Heroku-url]
 
 Integrations:
 * RentInform FE uses OAuth integration with Google for user authentication and log in
+  * gem used `omniauth-google-oauth2`, more information [here](https://github.com/zquestz/omniauth-google-oauth2) 
+* Tailwind was used for CSS styling
+  * gem used: `tailwindcss-rails`, more information [here](https://github.com/rails/tailwindcss-rails)
+* New Relic was used for monitoring and observability
+  * gem used: `newrelic_rpm`, more information [here](https://docs.newrelic.com/docs/apm/agents/ruby-agent/installation/install-new-relic-ruby-agent/) 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -107,66 +123,116 @@ Integrations:
 <!-- GETTING STARTED -->
 ## Getting Started
 
-To get a local copy up and running follow these simple example steps.
+To demo this on your local machine follow these steps: 
 
-### Installation
+### Backend Repository
 
-1. Fork the repo
-2. Clone the repo
-   ```
-   git clone https://github.com/RentInform/Rent-Inform-FE.git
-   ```
-3. Install the gems
-   ```
-   bundle install
-   ```
-4. Create and migrate the database
-   ```
-   rails db:{create,migrate}
-   ```
+1. Clone the backend [repo](https://github.com/RentInform/Rent-Inform-BE)
+2. Follow instructions in the backend repo `README`
+
+### Frontend Repository
+1. clone this repo `git clone git@github.com:RentInform/Rent-Inform-FE.git`
+2. Navigate to the local repository: `cd Rent-Inform-FE`
+3. Run: `bundle install`
+4. Run: `rails db:{create,migrate}`
+5. Run: `bundle exec figaro install`
+6. Add `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `NEW_RELIC_LICENSE_KEY` in `config/application.yml` file 
+7. Run: `rails s` to start rails server
+8. visit: http://localhost:5000/
+
+### Prequisites
+- Ruby Version 3.1.1
+- Rails Version 7.0.5
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+<!-- Testing -->
+## Testing
+
+`bundle exec rspec` will run the entire test suite. *All tests passing at time of writing.*
+
+- Also considered: Happy path, sad path, and edge cases were tested. Error messages were added where applicable. 
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- USAGE EXAMPLES -->
-## Usage
+<!-- Wire Frames -->
+## Wire Frames
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+<details>
+  <summary><code>Route: "/"</code></summary>
+  Landing Page:
+  <pre>
+    <code>
+      <img src="https://user-images.githubusercontent.com/120869196/244521339-51800267-c6e8-4c31-b7df-6962ab76e4e2.png" alt="Wire Frame" width="100%">
+    </code>
+  </pre>
+</details>
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+<details>
+  <summary><code>Route: "/login"</code></summary>
+  Log in Page:
+  <pre>
+    <code>
+      <img src="https://user-images.githubusercontent.com/120869196/244521810-3641a282-be5a-4fba-8199-af59933d3262.png" alt="Wire Frame" width="100%">
+    </code>
+  </pre>
+</details>
+
+<details>
+  <summary><code>Route: "/sign_up"</code></summary>
+  Sign up Page:
+  <pre>
+    <code>
+      <img src="https://user-images.githubusercontent.com/120869196/244522084-5ee0fd40-7f39-4349-b66a-a1b80449c657.png" alt="Wire Frame" width="100%">
+    </code>
+  </pre>
+</details>
+
+<details>
+  <summary><code>Route: "/dashboard"</code></summary>
+  User Dashboard - New User Page:
+  <pre>
+    <code>
+      <img src="https://user-images.githubusercontent.com/120869196/244522274-257ec12c-4409-47a8-859c-8fd1a4dc1af2.png" alt="Wire Frame" width="100%">
+    </code>
+  </pre>
+  User Dashboard - Search + Favorites Page:
+  <pre>
+    <code>
+      <img src="https://user-images.githubusercontent.com/120869196/244522377-f1573124-3713-4e13-95f2-45d6f70e6265.png" alt="Wire Frame" width="100%">
+    </code>
+  </pre>
+</details>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- ROADMAP -->
 ## Roadmap
 
-- [ ] list future refactors and potential future features
-
-See the [open issues](https://github.com/RentInform/Rent-Inform-FE/issues) for a full list of proposed features (and known issues).
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Additional features, functionality, and potential refactors:
+* Standard user registartion and log in
+* Two factor authentication
+* Improve search to match on zipcode and/or lat & lon
+  * Allow a visitor to search properties 
+* Expanded error handling 
+  * including rescuing from standard rails errors
+* Implement more details for the user through additional external API calls
+  * Amenities: Groceries stores, schools, libraries, parks
+  * Commute time to workplace from searched property
+  * Aggrigate score for the property from within the application
+* Allow a user to add notes for the property
+* Compare properties
+* Share properties
+* Allow users to export properties to google drive
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- LICENSE -->
@@ -186,8 +252,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 * Logan Cole: [![Linkedin][linkedin]][logan-li-url] [![Github][Github]][logan-gh-url]
 * Stephen McPhee: [![Linkedin][linkedin]][stephen-li-url] [![Github][Github]][stephen-gh-url]
 
-* Front End: [![Github][Github]][project-fe-gh-url]
-* Back End: [![Github][Github]][project-be-gh-url]
+Special Thanks: Jamison Ordway our instructor and project manager
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -234,6 +299,10 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 [Redis-url]: https://redis.io
 [CircleCI]: https://img.shields.io/badge/circleci-343434?style=for-the-badge&logo=circleci&logoColor=white
 [CircleCI-url]: https://circleci.com/
+[RSpec]: https://user-images.githubusercontent.com/120869196/244528226-7b4e762f-5c24-4a6e-9dec-65c20dcdae32.png
+[RSpec-url]: https://rspec.info/documentation/
+[Heroku]: https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
+[Heroku-url]: https://devcenter.heroku.com/articles/getting-started-with-rails7
 [Github]: https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
 [project-fe-gh-url]: https://github.com/RentInform/Rent-Inform-FE
 [project-be-gh-url]: https://github.com/RentInform/Rent-Inform-BE
