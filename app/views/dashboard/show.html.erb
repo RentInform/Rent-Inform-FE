@@ -1,6 +1,6 @@
 <div class="flex flex-col gap-12 w-full">
-  <div id='welcome' class="font-thin">
-    Welcome!
+  <div id='welcome' class="text-xl font-semibold">
+    Hey <%= @user.email %>!
   </div>
   
   <div id="find-property" class='w-full'>
@@ -31,7 +31,7 @@
       <div class="text-2xl font-bold">
         About <%= @property.street.titleize %>
       </div>
-      <div class='px-4 py-2 border border-gray-400 rounded-md gap-4'>
+      <div class='flex flex-col px-6 py-4 border border-gray-400 rounded-md gap-4'>
         <%= render partial: 'result_property' %>
       </div>
     <% end %>
