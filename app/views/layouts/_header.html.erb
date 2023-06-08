@@ -1,0 +1,53 @@
+<style>
+    @media(max-width:1520px) {
+        .left-svg {
+            display: none;
+        }
+    }
+  
+    /* small css for the mobile nav close */
+    #nav-mobile-btn.close span:first-child {
+        transform: rotate(45deg);
+        top: 4px;
+        position: relative;
+        background: #a0aec0;
+    }
+  
+    #nav-mobile-btn.close span:nth-child(2) {
+        transform: rotate(-45deg);
+        margin-top: 0px;
+        background: #a0aec0;
+    }
+  </style>
+  
+  <header class="fixed top-0 z-50 w-full h-20 bg-white shadow-lg">
+    <div class="container flex items-center justify-center h-full max-w-6xl px-8 mx-auto md:justify-between xl:px-0">
+      <a href="/" class="relative flex items-center h-full font-black leading-none">
+        <svg class="w-auto h-6 text-blue-700 fill-current" viewBox="0 0 194 116"
+          xmlns="http://www.w3.org/2000/svg">
+          <g fill-rule="evenodd">
+            <path
+              d="M96.869 0L30 116h104l-9.88-17.134H59.64l47.109-81.736zM0 116h19.831L77 17.135 67.088 0z" />
+            <path d="M87 68.732l9.926 17.143 29.893-51.59L174.15 116H194L126.817 0z" />
+          </g>
+        </svg>
+        <span class="ml-3 text-xl text-gray-800"><span class="text-black">RentInform</span></span>
+      </a>
+
+
+      <div id="header-buttons"
+          class="hidden w-64 gap-4 md:flex md:items-center">
+        <a href="/login"
+            class="relative z-40 inline-block w-[132px] h-full py-2 text-sm font-bold leading-none text-center transition-all duration-200 border-2 border-blue-700 rounded shadow-md fold-bold sm:w-full text-blue-700 hover:bg-blue-700 hover:text-white ">Log in</a>
+        <a href="/sign_up"
+            class="relative z-40 inline-block w-[132px] h-full py-2 text-sm font-bold leading-none text-white text-center transition-all duration-200 bg-blue-700 border-2 border-blue-700 rounded shadow-md fold-bold sm:w-full hover:bg-white hover:text-blue-700">Sign up</a>
+      </div>
+
+      <div id="nav-mobile-btn"
+          class="absolute top-0 right-0 z-50 block w-6 mt-8 mr-10 cursor-pointer select-none md:hidden">
+          <span class="block w-full h-1 mt-2 duration-200 transform bg-gray-800 rounded-full sm:mt-1"></span>
+          <span class="block w-full h-1 mt-1 duration-200 transform bg-gray-800 rounded-full"></span>
+      </div>
+
+    </div>
+  </header>

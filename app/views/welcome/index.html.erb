@@ -1,47 +1,116 @@
-<div id='Login'>
-  <%= link_to "Login", login_path %>
+<div class="flex flex-col gap-32">
+  <div id="Main" class="flex flex-row justify-between">
+    <div id="Description" class="flex flex-col w-1/3 gap-6 justify-center ">
+      <div>
+        <div class="text-4xl font-bold">
+          Find a rental that&apos;s safe and fit for you
+        </div>
+        <div class="text-md">
+          We provide you with code-compliant properties so you can focus on finding the best home for you.
+        </div> 
+      </div> 
+      <div>
+        <div id="Signup1" class="relative z-40 inline-block w-40 h-9 px-4 py-3 text-sm font-bold leading-none text-white text-center transition-all duration-300 bg-blue-700 rounded shadow-md fold-bold border-2 border-blue-700 hover:bg-white hover:text-blue-700">
+          <a href="/sign_up">Sign up</a>
+        </div>
+      </div>
+    </div> 
+    <div id="Image_one" class="w-1/2">
+      <img src="https://images.unsplash.com/photo-1559338391-e14b84a22772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80">
+    </div>
+  </div>
+
+
+  <div id="mid_page" class="flex flex-col gap-10 px-16 py-12 border border-solid border-gray-400 rounded-lg">
+    <div class="text-3xl font-bold text-center">
+      Sometimes pictures aren&apos;t enough
+    </div>
+    <div id="mid_page_ex" class="flex flex-row justify-between gap-8 font-semibold">
+      <div id="mid_page_pic1" class="flex flex-col gap-6">
+         <div style="width: 350px; height: 250px" >
+          <img class="object-cover w-full h-full" src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80">
+        </div>
+        <div class="text-base text-center">
+          Smoke Detectors? 
+        </div>  
+      </div>
+      <div id="mid_page_pic2" class="flex flex-col gap-6">
+      <div style="width: 350px; height: 250px">
+          <img class="object-cover  w-full h-full" src="https://images.unsplash.com/photo-1597026405082-eda9beae7513?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80">
+          </div>
+        <div class="text-base text-center">
+          Safe neighborhood? 
+        </div>
+      </div>
+      <div id="mid_page_pic3" class="flex flex-col gap-6">
+      <div style="width: 350px; height: 250px">
+          <img class="object-cover  w-full h-full" src="https://images.unsplash.com/photo-1584278140365-2ab8bff2be82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80">
+          </div>
+        <div class="text-base text-center">
+          Lifestyle fit? 
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="bottom_page" class="flex flex-row gap-10">
+    <div class="w-1/2">
+      <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=780&q=80">
+    </div>
+    <div id="bottom_page-examples" class="flex flex-col w-1/3 gap-6 justify-center">
+      <div class='gap-10'>
+        <div class="text-4xl font-bold text-left">
+          With RentInform
+        </div>
+        <div id='feature-list' class='flex flex-col gap-2'>
+          <div class='flex flex-row gap-4'>
+            <div class="w-4 h-4">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Eo_circle_yellow_checkmark.svg/2048px-Eo_circle_yellow_checkmark.svg.png">
+            </div>
+            <div class="text-md">
+              City Code Compliance Check
+            </div>
+          </div>
+          <div class='flex flex-row gap-4'>
+            <div class="w-4 h-4">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Eo_circle_yellow_checkmark.svg/2048px-Eo_circle_yellow_checkmark.svg.png">
+            </div>
+            <div class="text-md">
+              Walk Score
+            </div>
+          </div>
+          <div class='flex flex-row gap-4'>
+            <div class="w-4 h-4">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Eo_circle_yellow_checkmark.svg/2048px-Eo_circle_yellow_checkmark.svg.png">
+            </div>
+            <div class="text-md">
+              Bike Score
+            </div>
+          </div>
+          <div class='flex flex-row gap-4'>
+            <div class="w-4 h-4">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Eo_circle_yellow_checkmark.svg/2048px-Eo_circle_yellow_checkmark.svg.png">
+            </div>
+            <div class="text-md">
+              Transit Score
+            </div>
+          </div>
+          <div class='flex flex-row gap-4'>
+            <div class="w-4 h-4">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Eo_circle_yellow_checkmark.svg/2048px-Eo_circle_yellow_checkmark.svg.png">
+            </div>
+            <div class="text-md">
+              Safe Place Score
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="Signup2" class="relative z-40 inline-block w-40 h-9 px-4 py-3 text-sm font-bold leading-none text-white text-center transition-all duration-300 bg-blue-700 rounded shadow-md fold-bold border-2 border-blue-700 hover:bg-white hover:text-blue-700">
+        <a href="/sign_up">Sign up</a>
+      </div>
+    </div>
+  </div>
+
+  <div id='footer' class="p-20">
+  </div>
 </div>
-<br>
-<div id='Signup'>
-  <%= link_to "Sign Up", sign_up_path %>
-<br>
-
-<div id="Description">
-  <h3>Find a rental that's safe and fit for you</h3>
-  We provide you with code-compliant properties so you can focus on finding the best home for you.
-</div> <br>
-
-<div id="Image_one">
-  <img src="https://images.unsplash.com/photo-1559338391-e14b84a22772?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80">
-  <%#= image_tag "placeholder/Rick_rollin.jpeg" %>
-</div><br><br><br><br>
-
-<div id="mid_page">
-  <h3>Sometimes pictures aren't enough.</h3><br>
-  Smoke Detectors? 
-  <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=874&q=80">
-  <%#= image_tag "placeholder/Mini_rollin.jpeg" %>
-  Safe neighborhood? 
-  <img src="https://images.unsplash.com/photo-1597026405082-eda9beae7513?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80">
-  <%#= image_tag "placeholder/Mini_rollin.jpeg" %>
-  Lifestyle fit? 
-  <img src="https://images.unsplash.com/photo-1584278140365-2ab8bff2be82?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80">
-  <%#= image_tag "placeholder/Mini_rollin.jpeg" %>
-  </div>
-
-
-<div id="bottom_page">
-  <h3>With RentInform</h3><br>
-  <!-- little checkmark image here-->
-  City Code Compliance Check<br>
-  <!-- little checkmark image here-->
-  Walk Score<br>
-  <!-- little checkmark image here-->
-  Bike Score<br>
-  <!-- little checkmark image here-->
-  Transit Score<br>
-  <!-- little checkmark image here-->
-  Safe Place Score<br>
-  <img src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=780&q=80">
-  <%#= image_tag "placeholder/Rick_rollin.jpeg" %>
-  </div>
