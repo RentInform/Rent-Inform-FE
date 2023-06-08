@@ -1,0 +1,14 @@
+<div id="property-<%= property.id %>" class='border border-gray-400 rounded-lg flex px-4 py-2'>
+  <div class="flex flex-col">
+    <div class="font-semibold">
+      <%= property.street.titleize %>
+    </div>
+    <div class="font-semibold">
+      Philadephia, PA <%= property.zip[0..4] %>
+    </div>
+    <div>
+      <%= render partial: 'property_button', locals: { url: dashboard_path, method: :get, property: property, button: "More Details" } %>
+      <%= render partial: 'property_button', locals: { url: user_properties_path, method: :delete, property: property, button: "Unsave" } %>
+    </div>
+  </div>
+</div>

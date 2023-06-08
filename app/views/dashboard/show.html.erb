@@ -1,74 +1,51 @@
-<div style='display: flex; flex-direction: column'>
-<p>Welcome <%= @user %>!</p>
-<div id="Logout">
-  <%= button_to "Log Out", logout_path, method: :delete %>
-</div>
+<div class="flex flex-col gap-12 w-full">
+  <div id='welcome' class="font-thin">
+    Welcome!
+  </div>
+  
+  <div id="find-property" class='w-full'>
+    <div class="text-2xl font-bold">
+      Find a Property
+    </div>
+    <div id='search-box' class='flex flex-col border border-gray-400 rounded-md p-6 w-full gap-4'>
+      <div id="search" >
+        <%= render partial: 'search_form' %>
+      </div>
+    </div>
+  </div>
 
-<div id="home">
-  <%= button_to "Home", root_path, method: :get %>
-</div>
-
-<div id="find-property">
-  <h3>Find a Property</h3>
-</div>
-
-<div id="search">
- <%=form_with url: dashboard_path, method: :get do |f| %>
-     <%= f.search_field :search_street, placeholder: '123 Main Street' %>
-     <%= f.search_field :search_zip, placeholder: '12345' %>
-     <%= f.submit "Search" %>
-  <% end %>
-</div>
-
-<div id="Result" >
-  <% if @property.is_a? SearchError %>
-    This property is not on the Certified Rentals list.
-  <% elsif @property.is_a? Property %>
-    <%= @property.street %>, <%= @property.zip %><br>
-    Certified to Rent:
-    Bike Score: <%= @property.bike_score %>
-    Walk Score: <%= @property.walk_score %>
-    Safety Score: <%= @property.safety_score%>
-    Transit Score: <%= @property.transit_score %><br>
-
-    <% if !prop_ids(@user_properties).include?(@property.id)%>
-        <%= form_with url: user_properties_path, method: :post do |f| %>
-          <%= f.hidden_field :user_id, value: @user.id%>
-          <%= f.hidden_field :property_id, value: @property.id%>
-          <%= f.submit "Save" %>
-        <% end %>
-    <% else %>
-        <%= form_with url: user_properties_path, method: :delete do |f| %>
-          <%= f.hidden_field :user_id, value: @user.id%>
-          <%= f.hidden_field :property_id, value: @property.id%>
-          <%= f.submit "Unsave" %>
-        <% end %>
-    <% end %>
-  <% end %>
-</div>
-
-<div id="Saved">
-  <h3>Saved Properties</h3>
-  <% if @user_properties.empty? %>
-      Save a property to view it here!
-  <% else %>
-    <% @user_properties.each do |property|%>
-      <div id="property-<%= property.id %>">
-        <%= property.street %>, <%= property.zip %><br>
-
-        <%= form_with url: dashboard_path, method: :get do |f| %>
-          <%= f.hidden_field :user_id, value: @user.id%>
-          <%= f.hidden_field :property_id, value: property.id%>
-          <%= f.submit "More Details" %>
-        <% end %>
-
-        <%= form_with url: user_properties_path, method: :delete do |f| %>
-          <%= f.hidden_field :user_id, value: @user.id%>
-          <%= f.hidden_field :property_id, value: property.id%>
-          <%= f.submit "Unsave" %>
-        <% end %>
+  <div id="Result" class=''>
+    <% if @property.is_a? SearchError %>
+      <div>
+        This property is not on the Certified Rentals list.
+      </div>
+    <% elsif @property.is_a? Property %>
+      <div class="text-2xl font-bold">
+        About <%= @property.street.titleize %>
+      </div>
+      <div class='px-4 py-2 border border-gray-400 rounded-md gap-4'>
+        <%= render partial: 'result_property' %>
       </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+ 
+
+  <div id="Saved">
+    <div class="text-2xl font-bold">
+      Saved Properties
+    </div>
+    <div class='border border-gray-400 rounded-lg'>
+      <% if @user_properties.empty? %>
+        <div class="text-lg">
+          Save a property to view it here!
+        </div>
+      <% else %>
+        <div class='flex justify-around p-4'>
+          <% @user_properties.each do |property|%>
+              <%= render partial: 'saved_property', locals: { property: property } %>
+          <% end %>
+        </div>
+      <% end %> 
+    </div>
+  </div>
 </div>
