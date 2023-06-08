@@ -1,6 +1,6 @@
 <div class="flex flex-col gap-12 w-full">
-  <div id='welcome' class="font-thin">
-    Welcome!
+  <div id='welcome' class="text-xl font-semibold">
+    Hey <%= @user.email %>!
   </div>
   
   <div id="find-property" class='w-full'>
@@ -16,14 +16,22 @@
 
   <div id="Result" class=''>
     <% if @property.is_a? SearchError %>
-      <div>
-        This property is not on the Certified Rentals list.
+      <div class='px-6 py-4 border border-gray-400 rounded-md'>
+        <p class='font-semibold text-red-400'>
+          Sorry, we can&apos;t find this address in Philadelphia&apos;s Certificate of Rental Suitability database.
+        <p>
+        <p>
+          For more information about this certification and landlord-tenant rights and responsibilities, 
+          view the Partners in Good Housing brochure 
+          <a class='text-blue-500 hover:text-blue-700 underline'
+             href='https://www.phila.gov/documents/partners-in-good-housing-brochures/'>here</a>.
+        </p>
       </div>
     <% elsif @property.is_a? Property %>
       <div class="text-2xl font-bold">
         About <%= @property.street.titleize %>
       </div>
-      <div class='px-4 py-2 border border-gray-400 rounded-md gap-4'>
+      <div class='flex flex-col px-6 py-4 border border-gray-400 rounded-md gap-4'>
         <%= render partial: 'result_property' %>
       </div>
     <% end %>

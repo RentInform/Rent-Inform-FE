@@ -11,9 +11,9 @@ RSpec.describe 'user login' do
     end
   end
 
-  xit 'as a user I see a link to log in with google' do
-    within 'img' do
-      expect(page).to have_link('https://mysterious-escarpment-07313.heroku.com/auth/google_oauth2')
+  it 'as a user I see a link to log in with google' do
+    within '#google-link' do
+      expect(page).to have_css('a[href="/auth/google_oauth2"]')
     end
   end
 
