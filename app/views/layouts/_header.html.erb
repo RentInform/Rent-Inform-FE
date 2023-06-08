@@ -35,13 +35,21 @@
       </a>
 
 
-      <div id="header-buttons"
-          class="hidden w-64 gap-4 md:flex md:items-center">
-        <a href="/login"
-            class="relative z-40 inline-block w-[132px] h-full py-2 text-sm font-bold leading-none text-center transition-all duration-200 border-2 border-blue-700 rounded shadow-md fold-bold sm:w-full text-blue-700 hover:bg-blue-700 hover:text-white ">Log in</a>
-        <a href="/sign_up"
-            class="relative z-40 inline-block w-[132px] h-full py-2 text-sm font-bold leading-none text-white text-center transition-all duration-200 bg-blue-700 border-2 border-blue-700 rounded shadow-md fold-bold sm:w-full hover:bg-white hover:text-blue-700">Sign up</a>
-      </div>
+      
+      <% if current_user %>
+        <div id="header-buttons" class="hidden w-32 gap-4 md:flex md:items-center">
+          <div class="relative z-40 inline-block w-[132px] h-full py-2 text-sm font-bold leading-none text-white text-center transition-all duration-200 bg-blue-700 border-2 border-blue-700 rounded shadow-md fold-bold sm:w-full hover:bg-white hover:text-blue-700">
+            <%= button_to "Log out", logout_path, method: :delete %>
+          </div>
+        </div>
+      <% else %>
+        <div id="header-buttons" class="hidden w-64 gap-4 md:flex md:items-center">
+          <a href="/login"
+              class="relative z-40 inline-block w-[132px] h-full py-2 text-sm font-bold leading-none text-center transition-all duration-200 border-2 border-blue-700 rounded shadow-md fold-bold sm:w-full text-blue-700 hover:bg-blue-700 hover:text-white ">Log in</a>
+          <a href="/sign_up"
+              class="relative z-40 inline-block w-[132px] h-full py-2 text-sm font-bold leading-none text-white text-center transition-all duration-200 bg-blue-700 border-2 border-blue-700 rounded shadow-md fold-bold sm:w-full hover:bg-white hover:text-blue-700">Sign up</a>
+        </div>
+      <% end %>
 
       <div id="nav-mobile-btn"
           class="absolute top-0 right-0 z-50 block w-6 mt-8 mr-10 cursor-pointer select-none md:hidden">
