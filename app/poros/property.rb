@@ -6,7 +6,8 @@ class Property
                :transit_score,
                :safety_score,
                :city,
-               :state  
+               :state,
+               :id
 
   def initialize(data)
     @street = data[:street]
@@ -17,5 +18,6 @@ class Property
     @safety_score = data[:safety_score]
     @city = data[:city]
     @state = data[:state]
+    @id = data[:id]
   end
 end
