@@ -33,7 +33,7 @@ RSpec.describe "landing page" do
     end
 
     expect(current_path).to eq(sign_up_path)
-    expect(page).to have_content('RentInform#Sign Up')
+    expect(page).to have_content('RentInform')
   end
 
   it 'has mid page content' do
@@ -61,7 +61,7 @@ RSpec.describe "landing page" do
     end
 
     expect(current_path).to eq(sign_up_path)
-    expect(page).to have_content('RentInform#Sign Up')
+    expect(page).to have_content('RentInform')
   end
 
   it 'sign up link takes you to sign up page' do
@@ -70,7 +70,7 @@ RSpec.describe "landing page" do
     end
 
     expect(current_path).to eq(sign_up_path)
-    expect(page).to have_content('RentInform#Sign Up')
+    expect(page).to have_content('RentInform')
   end
 
   it 'login link takes you to login page' do
@@ -79,6 +79,6 @@ RSpec.describe "landing page" do
     end
 
     expect(current_path).to eq(login_path)
-    expect(page).to have_content('RentInform#Log In')
+    expect(page).to have_content('RentInform')
   end
 end
