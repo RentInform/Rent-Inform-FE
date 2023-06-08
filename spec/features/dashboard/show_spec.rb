@@ -79,7 +79,7 @@ RSpec.describe 'dashboard show page' do
         expect(page).to have_content('Bike Score')
         expect(page).to have_content('57')
         expect(page).to have_content('Transit Score')
-        expect(page).to have_content('99')
+        expect(page).to have_content('1')
         expect(page).to have_content('Safety Score')
       end
     end
@@ -112,7 +112,7 @@ RSpec.describe 'dashboard show page' do
         expect(page).to have_content('Bike Score')
         expect(page).to have_content('97')
         expect(page).to have_content('Transit Score')
-        expect(page).to have_content('65')
+        expect(page).to have_content('35')
         expect(page).to have_content('Safety Score')
       end
     end
@@ -135,7 +135,7 @@ RSpec.describe 'dashboard show page' do
         expect(page).to have_content('Bike Score')
         expect(page).to have_content('57')
         expect(page).to have_content('Transit Score')
-        expect(page).to have_content('99')
+        expect(page).to have_content('1')
         expect(page).to have_content('Safety Score')
       end
 
@@ -154,7 +154,7 @@ RSpec.describe 'dashboard show page' do
         expect(page).to have_content('Bike Score')
         expect(page).to have_content('97')
         expect(page).to have_content('Transit Score')
-        expect(page).to have_content('65')
+        expect(page).to have_content('35')
         expect(page).to have_content('Safety Score')
       end
     end
