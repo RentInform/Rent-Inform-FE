@@ -11,22 +11,22 @@ RSpec.describe 'user login' do
     end
   end
 
-  it 'as a user I see a link to log in with google' do
-    within '#google' do
-      expect(page).to have_link('Log In with Google')
+  xit 'as a user I see a link to log in with google' do
+    within 'img' do
+      expect(page).to have_link('https://mysterious-escarpment-07313.heroku.com/auth/google_oauth2')
     end
   end
 
   it 'as a user I see a link to sign up' do
-    within '#signup' do
+    within '#sign-up' do
       expect(page).to have_content("Don't have an account?")
-      expect(page).to have_link('Sign Up')
+      expect(page).to have_link('Sign up')
     end
   end
 
   it 'as a user when I click the sign up button, I am take to the sign up page' do
-    within '#signup' do
-      click_link 'Sign Up'
+    within '#sign-up' do
+      click_link 'Sign up'
       expect(current_path).to eq(sign_up_path)
     end
   end

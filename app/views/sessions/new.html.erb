@@ -1,18 +1,17 @@
-<h1>RentInform#Log In</h1>
-<br>
-<div id='welcome'>
-  <h2>Welcome back</h2>
-</div>
-<br>
-<div id='google'>
-  <%= link_to "Log In with Google", google_login_path %>
-</div>
-<br>
-<div id='signup'>
-  <p>Don't have an account? <%= link_to "Sign Up", sign_up_path %></p>
-</div>
-<br>
-<div id='placeholder'>
-  <img src="https://images.unsplash.com/photo-1611095565995-d09bbf618f6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80">
-  <%#= image_tag 'placeholder/placeholder-login.jpeg'%>
+<div id='log-in-box' class='flex border border-gray-400 rounded-lg'>
+  <div id='welcome' class='flex flex-col items-center justify-center w-1/2 gap-6'>
+    <div id='title' class='text-4xl font-bold'>
+      Welcome back
+    </div>
+    <div id='google-link'>
+      <%= link_to image_tag("https://developers.google.com/static/identity/images/btn_google_signin_light_normal_web.png"), '/auth/google_oauth2'%>
+    </div>
+    <div id='sign-up' class='text-sm'>
+      Don't have an account?
+      <a href='/sign_up' class='text-blue-700 underline'>Sign up</a>
+    </div>
+  </div>
+  <div id='log-in-img' class='w-1/2'>
+    <img class='w-full h-full object-cover' style='aspect-ratio: 1/1' src="https://images.unsplash.com/photo-1611095565995-d09bbf618f6d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=871&q=80">
+  </div>
 </div>
