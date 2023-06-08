@@ -1,6 +1,8 @@
 class RentInformService
   def get_property(street, zip)
-    get_url("/api/v0/search?street=#{street}&zip=#{zip}")
+    Rails.cache.fetch([street], expires: 1.week) do
+      get_url("/api/v0/search?street=#{street}&zip=#{zip}")
+    end
   end
 
   def get_user_properties(user_id)
@@ -8,7 +10,9 @@ class RentInformService
   end
 
   def get_property_by_id(user_id, property_id)
-    get_url("/api/v0/user_property?user_id=#{user_id}&property_id=#{property_id}")
+    Rails.cache.fetch([property_id], expires: 1.week) do
+      get_url("/api/v0/user_property?user_id=#{user_id}&property_id=#{property_id}")
+    end
   end
 
   def save_property(user_id, property_id)
