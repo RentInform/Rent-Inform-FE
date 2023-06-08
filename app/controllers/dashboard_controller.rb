@@ -1,7 +1,6 @@
 class DashboardController < ApplicationController
   def show
-    # @user = current_user
-    @user = User.last
+    @user = current_user
     @user_properties = UserPropertiesFacade.new(@user.id).user_properties if @user.present?
 
     if @user.nil?
