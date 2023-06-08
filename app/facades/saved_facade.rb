@@ -22,8 +22,8 @@ class SavedFacade
         safety_score: property[:data][:attributes][:safety_score],
         transit_score: property[:data][:attributes][:transit_score],
         city: property[:data][:attributes][:city],
-        state: property[:data][:attributes][:state]
-
+        state: property[:data][:attributes][:state],
+        id: property[:data][:id]
       }
 
       end
