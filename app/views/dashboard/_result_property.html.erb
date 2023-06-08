@@ -1,0 +1,12 @@
+<%= @property.street %>, <%= @property.zip %><br>
+Certified to Rent:
+Bike Score: <%= @property.bike_score %>
+Walk Score: <%= @property.walk_score %>
+Safety Score: <%= @property.safety_score%>
+Transit Score: <%= @property.transit_score %><br>
+
+<% if !prop_ids(@user_properties).include?(@property.id)%>
+  <%= render partial: 'property_button', locals: { url: user_properties_path, method: :post, property: @property, button: "Save" } %>
+<% else %>
+  <%= render partial: 'property_button', locals: { url: user_properties_path, method: :delete, property: @property, button: "Unsave" } %>
+<% end %>

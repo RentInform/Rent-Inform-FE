@@ -1,0 +1,6 @@
+<div id="property-<%= property.id %>">
+  <%= property.street %>, <%= property.zip %><br>
+
+  <%= render partial: 'property_button', locals: { url: dashboard_path, method: :get, property: property, button: "More Details" } %>
+  <%= render partial: 'property_button', locals: { url: user_properties_path, method: :delete, property: property, button: "Unsave" } %>
+</div>

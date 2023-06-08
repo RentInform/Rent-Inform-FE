@@ -20,18 +20,7 @@
   <% if @property.is_a? SearchError %>
     This property is not on the Certified Rentals list.
   <% elsif @property.is_a? Property %>
-    <%= @property.street %>, <%= @property.zip %><br>
-    Certified to Rent:
-    Bike Score: <%= @property.bike_score %>
-    Walk Score: <%= @property.walk_score %>
-    Safety Score: <%= @property.safety_score%>
-    Transit Score: <%= @property.transit_score %><br>
-
-    <% if !prop_ids(@user_properties).include?(@property.id)%>
-      <%= render partial: 'property_button', locals: { url: user_properties_path, method: :post, property: @property, button: "Save" } %>
-    <% else %>
-      <%= render partial: 'property_button', locals: { url: user_properties_path, method: :delete, property: @property, button: "Unsave" } %>
-    <% end %>
+    <%= render partial: 'result_property' %>
   <% end %>
 </div>
 
@@ -41,12 +30,7 @@
       Save a property to view it here!
   <% else %>
     <% @user_properties.each do |property|%>
-      <div id="property-<%= property.id %>">
-        <%= property.street %>, <%= property.zip %><br>
-
-        <%= render partial: 'property_button', locals: { url: dashboard_path, method: :get, property: property, button: "More Details" } %>
-        <%= render partial: 'property_button', locals: { url: user_properties_path, method: :delete, property: property, button: "Unsave" } %>
-      </div>
+      <%= render partial: 'saved_property', locals: { property: property } %>
     <% end %>
   <% end %>
 </div>
