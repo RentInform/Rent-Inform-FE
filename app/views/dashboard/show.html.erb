@@ -1,37 +1,51 @@
-<div style='display: flex; flex-direction: column'>
-<p>Welcome <%= @user %>!</p>
-<div id="Logout">
-  <%= button_to "Log Out", logout_path, method: :delete %>
-</div>
+<div class="flex flex-col gap-12 w-full">
+  <div id='welcome' class="font-thin">
+    Welcome!
+  </div>
+  
+  <div id="find-property" class='w-full'>
+    <div class="text-2xl font-bold">
+      Find a Property
+    </div>
+    <div id='search-box' class='flex flex-col border border-gray-400 rounded-md p-6 w-full gap-4'>
+      <div id="search" >
+        <%= render partial: 'search_form' %>
+      </div>
+    </div>
+  </div>
 
-<div id="home">
-  <%= button_to "Home", root_path, method: :get %>
-</div>
-
-<div id="find-property">
-  <h3>Find a Property</h3>
-</div>
-
-<div id="search">
-  <%= render partial: 'search_form' %>
-</div>
-
-<div id="Result" >
-  <% if @property.is_a? SearchError %>
-    This property is not on the Certified Rentals list.
-  <% elsif @property.is_a? Property %>
-    <%= render partial: 'result_property' %>
-  <% end %>
-</div>
-
-<div id="Saved">
-  <h3>Saved Properties</h3>
-  <% if @user_properties.empty? %>
-      Save a property to view it here!
-  <% else %>
-    <% @user_properties.each do |property|%>
-      <%= render partial: 'saved_property', locals: { property: property } %>
+  <div id="Result" class=''>
+    <% if @property.is_a? SearchError %>
+      <div>
+        This property is not on the Certified Rentals list.
+      </div>
+    <% elsif @property.is_a? Property %>
+      <div class="text-2xl font-bold">
+        About <%= @property.street.titleize %>
+      </div>
+      <div class='px-4 py-2 border border-gray-400 rounded-md gap-4'>
+        <%= render partial: 'result_property' %>
+      </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+ 
+
+  <div id="Saved">
+    <div class="text-2xl font-bold">
+      Saved Properties
+    </div>
+    <div class='border border-gray-400 rounded-lg'>
+      <% if @user_properties.empty? %>
+        <div class="text-lg">
+          Save a property to view it here!
+        </div>
+      <% else %>
+        <div class='flex justify-around p-4'>
+          <% @user_properties.each do |property|%>
+              <%= render partial: 'saved_property', locals: { property: property } %>
+          <% end %>
+        </div>
+      <% end %> 
+    </div>
+  </div>
 </div>
