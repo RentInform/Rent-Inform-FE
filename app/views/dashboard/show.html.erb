@@ -13,11 +13,7 @@
 </div>
 
 <div id="search">
- <%=form_with url: dashboard_path, method: :get do |f| %>
-     <%= f.search_field :search_street, placeholder: '123 Main Street' %>
-     <%= f.search_field :search_zip, placeholder: '12345' %>
-     <%= f.submit "Search" %>
-  <% end %>
+  <%= render partial: 'search_form' %>
 </div>
 
 <div id="Result" >
@@ -32,17 +28,9 @@
     Transit Score: <%= @property.transit_score %><br>
 
     <% if !prop_ids(@user_properties).include?(@property.id)%>
-        <%= form_with url: user_properties_path, method: :post do |f| %>
-          <%= f.hidden_field :user_id, value: @user.id%>
-          <%= f.hidden_field :property_id, value: @property.id%>
-          <%= f.submit "Save" %>
-        <% end %>
+      <%= render partial: 'property_button', locals: { url: user_properties_path, method: :post, property: @property, button: "Save" } %>
     <% else %>
-        <%= form_with url: user_properties_path, method: :delete do |f| %>
-          <%= f.hidden_field :user_id, value: @user.id%>
-          <%= f.hidden_field :property_id, value: @property.id%>
-          <%= f.submit "Unsave" %>
-        <% end %>
+      <%= render partial: 'property_button', locals: { url: user_properties_path, method: :delete, property: @property, button: "Unsave" } %>
     <% end %>
   <% end %>
 </div>
@@ -56,17 +44,8 @@
       <div id="property-<%= property.id %>">
         <%= property.street %>, <%= property.zip %><br>
 
-        <%= form_with url: dashboard_path, method: :get do |f| %>
-          <%= f.hidden_field :user_id, value: @user.id%>
-          <%= f.hidden_field :property_id, value: property.id%>
-          <%= f.submit "More Details" %>
-        <% end %>
-
-        <%= form_with url: user_properties_path, method: :delete do |f| %>
-          <%= f.hidden_field :user_id, value: @user.id%>
-          <%= f.hidden_field :property_id, value: property.id%>
-          <%= f.submit "Unsave" %>
-        <% end %>
+        <%= render partial: 'property_button', locals: { url: dashboard_path, method: :get, property: property, button: "More Details" } %>
+        <%= render partial: 'property_button', locals: { url: user_properties_path, method: :delete, property: property, button: "Unsave" } %>
       </div>
     <% end %>
   <% end %>
