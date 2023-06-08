@@ -34,15 +34,15 @@ RSpec.describe 'dashboard show page' do
       .to_return(status: 200, body: File.read('./spec/fixtures/user_properties_1.json'))
     end
 
-    xit 'has a button to log out' do
+    it 'has a button to log out' do
       visit dashboard_path
-      expect(page).to have_button('Log Out')
+      expect(page).to have_button('Log out')
     end
 
-    xit 'logs out the user' do
+    it 'logs out the user' do
       visit dashboard_path
 
-      click_button 'Log Out'
+      click_button 'Log out'
 
       expect(current_path).to eq(root_path)
     end
@@ -301,7 +301,9 @@ RSpec.describe 'dashboard show page' do
 
       within '#Result' do
         expect(page).to_not have_content('Certified to Rent')
-        expect(page).to have_content('This property is not on the Certified Rentals list.')
+        expect(page).to have_content("Sorry, we can't find this address in Philadelphia's Certificate of Rental Suitability database")
+        expect(page).to have_content("Sorry, we can't find this address in Philadelphia's Certificate of Rental Suitability database")
+        expect(page).to have_link('here', href: 'https://www.phila.gov/documents/partners-in-good-housing-brochures/')
       end
     end
   end
