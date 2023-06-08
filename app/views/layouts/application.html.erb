@@ -9,11 +9,13 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.9.2/tailwind.min.css">
   </head>
 
   <body>
-  <h1>RentInform</h1>
-   <% flash.each do |type, msg| %>
+    <%= render partial: "layouts/header" %>
+    <% flash.each do |type, msg| %>
       <%= content_tag :div, msg, class: type %>
     <% end %>
     <main class="container mx-auto mt-28 px-5 flex">
