@@ -10,14 +10,14 @@ RSpec.describe "landing page" do
   end
 
   it 'has a link to log in' do
-    within "#Login" do
-      expect(page).to have_content("Login")
+    within "#header-buttons" do
+      expect(page).to have_content("Log in")
     end
   end
 
   it 'has a link to sign up for an account' do
-    within "#Signup" do
-      expect(page).to have_content("Sign Up")
+    within "#header-buttons" do
+      expect(page).to have_content("Sign up")
     end
   end
 
@@ -25,12 +25,20 @@ RSpec.describe "landing page" do
     within"#Description" do
       expect(page).to have_content("We provide you with code-compliant properties so you can focus on finding the best home for you.")
       expect(page).to have_content("Find a rental that's safe and fit for you")
+
+      expect(page).to have_content("Sign up")
     end
+    within "#Signup1" do
+      click_link "Sign up"
+    end
+
+    expect(current_path).to eq(sign_up_path)
+    expect(page).to have_content('RentInform#Sign Up')
   end
 
   it 'has mid page content' do
    within "#mid_page" do
-    expect(page).to have_content("Sometimes pictures aren't enough.")
+    expect(page).to have_content("Sometimes pictures aren't enough")
     expect(page).to have_content("Smoke Detectors?")
     expect(page).to have_content("Safe neighborhood?")
     expect(page).to have_content("Lifestyle fit?")
@@ -45,18 +53,30 @@ RSpec.describe "landing page" do
       expect(page).to have_content("Bike Score")
       expect(page).to have_content("Transit Score")
       expect(page).to have_content("Safe Place Score")
+
+      expect(page).to have_content("Sign up")
     end
+    within "#Signup2" do
+      click_link "Sign up"
+    end
+
+    expect(current_path).to eq(sign_up_path)
+    expect(page).to have_content('RentInform#Sign Up')
   end
 
   it 'sign up link takes you to sign up page' do
-    click_link "Sign Up"
+    within "#header-buttons" do
+      click_link "Sign up"
+    end
 
     expect(current_path).to eq(sign_up_path)
     expect(page).to have_content('RentInform#Sign Up')
   end
 
   it 'login link takes you to login page' do
-    click_link "Login"
+    within "#header-buttons" do
+      click_link "Log in"
+    end
 
     expect(current_path).to eq(login_path)
     expect(page).to have_content('RentInform#Log In')
