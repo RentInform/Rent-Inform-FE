@@ -68,7 +68,8 @@
       </ul>
     </li>
     <li><a href="#testing">Testing</a></li>
-    <li><a href="#testing">Wire Frames</a></li>
+    <li><a href="#wire">Wire Frames</a></li>
+    <li><a href="#tech">Technical Solutions</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -209,6 +210,12 @@ To demo this on your local machine follow these steps:
     </code>
   </pre>
 </details>
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- Technical Solutions -->
+## Technical Solutions
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
