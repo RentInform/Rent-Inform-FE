@@ -19,10 +19,10 @@ RSpec.describe SearchFacade do
       expect(property).to be_a(Property)
       expect(property.street).to eq('123 Main Street')
       expect(property.zip).to eq('19148')
-      expect(property.bike_score).to eq('23')
+      expect(property.bike_score).to eq('26')
       expect(property.walk_score).to eq('89')
       expect(property.transit_score).to eq('57')
-      expect(property.safety_score).to eq('99')
+      expect(property.safety_score).to eq('93')
       expect(property.city).to eq('Philadelphia')
       expect(property.state).to eq('PA')
     end

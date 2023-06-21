@@ -3,14 +3,14 @@
     "type": "property",
     "id": "1",
     "attributes": {
-        "street": "123 Main Street",
-        "city": "Philadelphia",
-        "state": "PA",
-        "zip": "19148",
-        "walk_score": "89",
-        "transit_score": "57",
-        "bike_score": "23",
-        "safety_score": "99"
+      "street": "123 Main Street",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zip": "19148",
+      "walk_score": "89",
+      "transit_score": "57",
+      "bike_score": "26",
+      "safety_score": "93"
     }
   }
 }
