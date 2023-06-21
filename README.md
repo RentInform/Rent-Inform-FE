@@ -83,7 +83,7 @@ The front end application handles user interaction through the browser, and is b
 - [Production Website](https://mysterious-escarpment-07313.herokuapp.com/)
 - [Backend Service](https://sheltered-harbor-92742.herokuapp.com/)
   - To reach endpoint append `/api/v0/search?street='123-main-street'&zip='12345'`
-  - See more endpoints [here](https://github.com/RentInform/Rent-Inform-BE)
+  - See more endpoints [here](https://github.com/RentInform/BE-Rent-Inform)
 - Github repositories:
   * Front End: [![Github][Github]][project-fe-gh-url]
   * Back End: [![Github][Github]][project-be-gh-url]
@@ -120,7 +120,7 @@ To demo RentInform on your local machine, follow these steps:
 
 ### Back End Repository
 
-1. Clone the back end [repo](https://github.com/RentInform/Rent-Inform-BE)
+1. Clone the back end [repo](https://github.com/RentInform/BE-Rent-Inform)
 2. Follow instructions in the backend repo `README`
 
 ### Front End Repository
