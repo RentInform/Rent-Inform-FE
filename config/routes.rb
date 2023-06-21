@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   get '/auth/google_oauth2/callback', to: 'sessions#create'
   get '/dashboard', to: 'dashboard#show', as: 'dashboard'
 
+  get '/property/:user_id/:property_id', to: 'properties#show', as: 'property'
+
   get '/sign_up', to: 'users#new'
   get '/login', to: 'sessions#new'
 
