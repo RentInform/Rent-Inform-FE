@@ -8,9 +8,9 @@ class DashboardController < ApplicationController
       flash[:error] = "You must be logged in to view this page"
     end
 
-    if params[:user_id] && params[:property_id]
-      @property = SavedFacade.new(params[:user_id], params[:property_id]).property
-    end
+    # if params[:user_id] && params[:property_id]
+    #   @property = SavedFacade.new(params[:user_id], params[:property_id]).property
+    # end
 
     if params[:search_street] && params[:search_zip]
       @property = SearchFacade.new(params[:search_street], params[:search_zip]).property
