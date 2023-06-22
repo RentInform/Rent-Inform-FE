@@ -31,7 +31,7 @@ RSpec.describe 'dashboard show page' do
       'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
       'User-Agent'=>'Faraday v2.7.5'
         })
-      .to_return(status: 200, body: File.read('./spec/fixtures/property_1.json'))
+      .to_return(status: 200, body: File.read('./spec/fixtures/search_property_1.json'))
 
       stub_request(:get, 'https://sheltered-harbor-92742.herokuapp.com/api/v0/user_properties?user_id=420')
       .with(
@@ -258,7 +258,7 @@ RSpec.describe 'dashboard show page' do
       'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
       'User-Agent'=>'Faraday v2.7.5'
         })
-      .to_return(status: 200, body: File.read('./spec/fixtures/property_1.json'))
+      .to_return(status: 200, body: File.read('./spec/fixtures/search_property_1.json'))
     end
 
     it 'redirects to home page if not logged in' do
