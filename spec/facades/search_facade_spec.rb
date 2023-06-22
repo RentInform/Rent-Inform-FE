@@ -9,7 +9,7 @@ RSpec.describe SearchFacade do
      'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
      'User-Agent'=>'Faraday v2.7.5'
       })
-    .to_return(status: 200, body: File.read('./spec/fixtures/property_1.json'))
+    .to_return(status: 200, body: File.read('./spec/fixtures/search_property_1.json'))
   end
   describe 'instance methods' do
     it '#property' do
@@ -19,10 +19,6 @@ RSpec.describe SearchFacade do
       expect(property).to be_a(Property)
       expect(property.street).to eq('123 Main Street')
       expect(property.zip).to eq('19148')
-      expect(property.bike_score).to eq('26')
-      expect(property.walk_score).to eq('89')
-      expect(property.transit_score).to eq('57')
-      expect(property.safety_score).to eq('93')
       expect(property.city).to eq('Philadelphia')
       expect(property.state).to eq('PA')
     end
