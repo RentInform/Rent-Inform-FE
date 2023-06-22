@@ -15,6 +15,15 @@ RSpec.describe 'dashboard show page' do
         })
       .to_return(status: 200, body: File.read('./spec/fixtures/property_2.json'))
 
+      stub_request(:get, 'https://sheltered-harbor-92742.herokuapp.com/api/v0/user_property?property_id=1&user_id=420')
+      .with(
+        headers: {
+       'Accept'=>'*/*',
+       'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
+       'User-Agent'=>'Faraday v2.7.5'
+        })
+      .to_return(status: 200, body: File.read('./spec/fixtures/property_1.json'))
+
       stub_request(:get, 'https://sheltered-harbor-92742.herokuapp.com/api/v0/search?street=123%20Main%20Street&zip=19148')
       .with(
         headers: {
@@ -61,7 +70,7 @@ RSpec.describe 'dashboard show page' do
       expect(page).to have_field(:search_zip)
     end
 
-    it 'searches' do
+    it 'searches and provides a link for more details' do
       visit dashboard_path
 
       fill_in :search_street, with: '123 Main Street'
@@ -70,17 +79,25 @@ RSpec.describe 'dashboard show page' do
       expect(current_path).to eq(dashboard_path)
 
       within '#Result' do
-        expect(page).to have_content('Certified to Rent')
+        expect(page).to have_content('certified to rent')
         expect(page).to have_content('123 Main Street')
+        expect(page).to have_content('Philadelphia')
+        expect(page).to have_content('PA')
         expect(page).to have_content('19148')
-        expect(page).to have_content('89')
-        expect(page).to have_content('Walk Score')
-        expect(page).to have_content('23')
-        expect(page).to have_content('Bike Score')
-        expect(page).to have_content('57')
-        expect(page).to have_content('Transit Score')
-        expect(page).to have_content('1')
-        expect(page).to have_content('Safety Score')
+
+
+        expect(page).to_not have_content('89')
+        expect(page).to_not have_content('Walk Score')
+        expect(page).to_not have_content('26')
+        expect(page).to_not have_content('Bike Score')
+        expect(page).to_not have_content('57')
+        expect(page).to_not have_content('Transit Score')
+        expect(page).to_not have_content('7')
+        expect(page).to_not have_content('Safety Score')
+
+        expect(page).to have_button('More Details')
+        click_button('More Details')
+        expect(current_path).to eq(property_path(420, 1))
       end
     end
 
@@ -94,12 +111,12 @@ RSpec.describe 'dashboard show page' do
       end
     end
 
-    it 'displays property details when user clicks more details' do
+    it 'takes user to show page and displays details when user clicks more details' do
       visit dashboard_path
 
       within '#property-2' do
         click_button 'More Details'
-        expect(current_path).to eq('/dashboard')
+        expect(current_path).to eq(property_path(420, 2))
       end
 
       within '#Result' do
@@ -117,7 +134,7 @@ RSpec.describe 'dashboard show page' do
       end
     end
 
-    it 'can show a searched property, then show more details' do
+    it 'can show a searched property, then show more details on a show page' do
       visit dashboard_path
 
       fill_in :search_street, with: '123 Main Street'
@@ -126,22 +143,22 @@ RSpec.describe 'dashboard show page' do
       expect(current_path).to eq(dashboard_path)
 
       within '#Result' do
-        expect(page).to have_content('Certified to Rent')
+        expect(page).to have_content('certified to rent')
         expect(page).to have_content('123 Main Street')
         expect(page).to have_content('19148')
-        expect(page).to have_content('89')
-        expect(page).to have_content('Walk Score')
-        expect(page).to have_content('23')
-        expect(page).to have_content('Bike Score')
-        expect(page).to have_content('57')
-        expect(page).to have_content('Transit Score')
-        expect(page).to have_content('1')
-        expect(page).to have_content('Safety Score')
+        expect(page).to_not have_content('89')
+        expect(page).to_not have_content('Walk Score')
+        expect(page).to_not have_content('26')
+        expect(page).to_not have_content('Bike Score')
+        expect(page).to_not have_content('57')
+        expect(page).to_not have_content('Transit Score')
+        expect(page).to_not have_content('7')
+        expect(page).to_not have_content('Safety Score')
       end
 
       within '#property-2' do
         click_button 'More Details'
-        expect(current_path).to eq('/dashboard')
+        expect(current_path).to eq(property_path(420, 2))
       end
 
       within '#Result' do

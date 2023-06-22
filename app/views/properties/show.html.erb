@@ -1,0 +1,16 @@
+<div class='flex flex-col'>
+  <div id='Result'>
+    <div class="text-2xl font-bold">
+      About <%= @property.street.titleize %>
+    </div>
+    <div class='flex flex-col px-6 py-4 border border-gray-400 rounded-md gap-4'>
+      <%= render partial: 'shared/property_details' %>
+    </div>
+  </div>
+
+  <div class='flex flex-row'>
+    <div id='Map' class='flex flex-col align-self: center'>
+      <p>Map</p>
+    </div>
+  </div>
+</div>

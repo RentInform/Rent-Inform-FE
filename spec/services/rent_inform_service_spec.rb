@@ -16,7 +16,7 @@ RSpec.describe RentInformService do
     it '#get_property' do
       service = RentInformService.new
       property = service.get_property('123 Main Street', '19148')
-      
+
       expect(property).to be_a(Hash)
 
       expect(property).to have_key(:data)
@@ -33,9 +33,9 @@ RSpec.describe RentInformService do
       expect(attributes[:state]).to eq('PA')
       expect(attributes[:zip]).to eq('19148')
       expect(attributes[:walk_score]).to eq("89")
-      expect(attributes[:bike_score]).to eq("23")
+      expect(attributes[:bike_score]).to eq("26")
       expect(attributes[:transit_score]).to eq("57")
-      expect(attributes[:safety_score]).to eq("99")
+      expect(attributes[:safety_score]).to eq("93")
     end
   end
 end
