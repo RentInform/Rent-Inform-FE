@@ -14,6 +14,7 @@ class SavedFacade
   private
 
     def format_property(property)
+
       {
         street: property[:data][:attributes][:street],
         zip: property[:data][:attributes][:zip],
@@ -23,6 +24,8 @@ class SavedFacade
         transit_score: property[:data][:attributes][:transit_score],
         city: property[:data][:attributes][:city],
         state: property[:data][:attributes][:state],
+        lat: property[:data][:attributes][:lat],
+        lon: property[:data][:attributes][:lon],
         id: property[:data][:id]
       }
 
