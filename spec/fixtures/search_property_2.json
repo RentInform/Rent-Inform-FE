@@ -1,0 +1,12 @@
+{
+  "data": {
+    "type": "property",
+    "id": "2",
+    "attributes": {
+      "street": "456 Center Street",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zip": "19148"
+    }
+  }
+}
