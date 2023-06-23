@@ -10,7 +10,9 @@
       "walk_score": "89",
       "transit_score": "57",
       "bike_score": "26",
-      "safety_score": "93"
+      "safety_score": "93",
+      "lat": "39.96246",
+      "lon": "-75.13755"
     }
   }
 }

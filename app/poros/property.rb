@@ -7,6 +7,8 @@ class Property
                :safety_score,
                :city,
                :state,
+               :lat,
+               :lon,
                :id
 
   def initialize(data)
@@ -18,6 +20,8 @@ class Property
     @safety_score = data[:safety_score]
     @city = data[:city]
     @state = data[:state]
+    @lat = data[:lat]
+    @lon = data[:lon]
     @id = data[:id]
   end
 end
