@@ -11,7 +11,7 @@
   <div class='flex flex-row'>
     <div id='Map' class='flex flex-col align-self: center'>
       <p>Map</p>
-      <%= image_tag map(39.92459089291047, -75.16204921093596) %>
+      <%= image_tag map(@property.lat, @property.lon) %>
     </div>
   </div>
 </div>
