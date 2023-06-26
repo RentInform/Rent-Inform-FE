@@ -1,5 +1,5 @@
 <%= form_with url: url, method: method, local: true do |f| %>
   <%= f.hidden_field :user_id, value: @user.id%>
   <%= f.hidden_field :property_id, value: property.id%>
-  <%= f.submit button %>
+  <%= f.submit button, class: style  %>
 <% end %>

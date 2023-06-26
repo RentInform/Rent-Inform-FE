@@ -2,12 +2,11 @@
   <div class="font-semibold text-xl">
     <%= @property.street.titleize %>, Philadelphia, PA <%= @property.zip[0..4] %>
   </div>
-  <%# <div id='save-unsave' class='relative z-40 inline-block w-1 h-full py-2 text-sm font-bold leading-none text-white text-center transition-all duration-200 bg-blue-700 border-2 border-blue-700 rounded shadow-md fold-bold sm:w-full hover:bg-white hover:text-blue-700'> %>
-  <div id='save-unsave' class='relative z-40 inline-flex items-center justify-center w-16 h-8 py-1 text-xs font-bold leading-none text-center transition-all duration-200 border-2 border-blue-700 rounded shadow-md text-blue-700 hover:bg-blue-700 hover:text-white'>
+  <div id='save-unsave'>
     <% if !prop_ids(@user_properties).include?(@property.id)%>
-      <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :post, property: @property, button: "Save" } %>
+      <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :post, property: @property, button: "Save", style: 'relative z-40 inline-flex items-center justify-center w-16 h-8 py-1 text-xs font-bold leading-none text-center transition-all duration-200 border-2 border-blue-700 bg-blue-700 rounded shadow-md text-white hover:bg-white hover:text-blue-700' } %>
     <% else %>
-      <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :delete, property: @property, button: "Unsave" } %>
+      <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :delete, property: @property, button: "Unsave", style: 'relative z-40 inline-flex items-center justify-center w-16 h-8 py-1 text-xs font-bold leading-none text-center transition-all duration-200 border-2 border-blue-700 bg-blue-700 rounded shadow-md text-white hover:bg-white hover:text-blue-700' } %>
     <% end %>
   </div>
 </div>
@@ -16,26 +15,26 @@
   <div class='border border-gray-400 p-2 rounded-md flex-1 flex flex-col justify-center items-center gap-4' style='aspect-ratio: 1/1'>
     <p>Certified to Rent</p>
     <div class='w-36 h-36 flex justify-center items-center'>
-    <img class='w-24 h-24' src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/512px-Eo_circle_green_checkmark.svg.png?20200417132424">
+      <img class='w-24 h-24' src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/512px-Eo_circle_green_checkmark.svg.png?20200417132424">
     </div>
-    <a class='text-xs text-blue-700 underline' href='https://www.phila.gov/documents/partners-in-good-housing-brochures/'>Learn more</a>
+    <a class='text-xs text-blue-700 underline hover:text-blue-900' href='https://www.phila.gov/documents/partners-in-good-housing-brochures/'>Learn more</a>
   </div>
 
   <div class='border border-gray-400 p-2 rounded-md flex-1 flex flex-col justify-center items-center gap-4'>
-    <p class='text-lg'>
+    <p class='text-m'>
       Bike Score
     </p>
     <div class='w-24 h-24 rounded-full flex justify-center items-center' style='background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
     conic-gradient(<%= @property.bike_score.to_i >= 75 ? 'green' : @property.bike_score.to_i >= 50 ? 'orange' : 'red' %> <%= @property.bike_score %>%, <%= @property.bike_score.to_i >= 75 ? 'lightgreen' : @property.bike_score.to_i >= 50 ? 'bisque' : 'pink' %> 0)' >
       <p class='justify-center'>
-      <%= @property.bike_score %>
+        <%= @property.bike_score %>
       </p>
     </div>
-    <a class='text-xs text-blue-700 underline' href='https://www.walkscore.com/how-it-works/'>Learn more</a>
+    <a class='text-xs text-blue-700 underline hover:text-blue-900' href='https://www.walkscore.com/how-it-works/'>Learn more</a>
   </div>
 
   <div class='border border-gray-400 p-2 rounded-md flex-1 flex flex-col justify-center items-center gap-4'>
-    <p class='text-lg'>
+    <p class='text-m'>
       Walk Score
     </p>
   <div class='w-24 h-24 rounded-full flex justify-center items-center' style='background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
@@ -44,11 +43,11 @@
       <%= @property.walk_score %>
     </p>
     </div>
-    <a class='text-xs text-blue-700 underline' href='https://www.walkscore.com/how-it-works/'>Learn more</a>
+    <a class='text-xs text-blue-700 underline hover:text-blue-900' href='https://www.walkscore.com/how-it-works/'>Learn more</a>
   </div>
 
   <div class='border border-gray-400 p-2 rounded-md flex-1 flex flex-col justify-center items-center gap-4'>
-    <p class='text-lg'>
+    <p class='text-m'>
       Transit Score
     </p>
   <div class='w-24 h-24 rounded-full flex justify-center items-center' style='background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
@@ -57,11 +56,11 @@
       <%= @property.transit_score %>
     </p>
     </div>
-    <a class='text-xs text-blue-700 underline' href='https://www.walkscore.com/how-it-works/'>Learn more</a>
+    <a class='text-xs text-blue-700 underline hover:text-blue-900' href='https://www.walkscore.com/how-it-works/'>Learn more</a>
   </div>
 
   <div class='border border-gray-400 p-2 rounded-md flex-1 flex flex-col justify-center items-center gap-4'>
-    <p class='text-lg'>
+    <p class='text-m'>
       Safety Score
     </p>
   <div class='w-24 h-24 rounded-full flex justify-center items-center' style='background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
@@ -70,6 +69,6 @@
       <%= 100 - @property.safety_score.to_i %>
     </p>
     </div>
-    <a class='text-xs text-blue-700 underline' href='https://geosureglobal.com/'>Learn more</a>
+    <a class='text-xs text-blue-700 underline hover:text-blue-900' href='https://geosureglobal.com/'>Learn more</a>
   </div>
 </div>
