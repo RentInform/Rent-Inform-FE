@@ -2,7 +2,8 @@
   <div class="font-semibold text-xl">
     <%= @property.street.titleize %>, Philadelphia, PA <%= @property.zip[0..4] %>
   </div>
-  <div>
+  <%# <div id='save-unsave' class='relative z-40 inline-block w-1 h-full py-2 text-sm font-bold leading-none text-white text-center transition-all duration-200 bg-blue-700 border-2 border-blue-700 rounded shadow-md fold-bold sm:w-full hover:bg-white hover:text-blue-700'> %>
+  <div id='save-unsave' class='relative z-40 inline-flex items-center justify-center w-16 h-8 py-1 text-xs font-bold leading-none text-center transition-all duration-200 border-2 border-blue-700 rounded shadow-md text-blue-700 hover:bg-blue-700 hover:text-white'>
     <% if !prop_ids(@user_properties).include?(@property.id)%>
       <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :post, property: @property, button: "Save" } %>
     <% else %>
