@@ -117,8 +117,6 @@ RSpec.describe 'dashboard show page' do
       within '#property-2' do
         click_button 'More Details'
         expect(current_path).to eq(property_path(420, 2))
-        save_and_open_page
-
       end
 
       within '#Result' do
