@@ -10,7 +10,7 @@
 
   <div class='flex flex-row my-2'>
     <div id='Map' class='border border-gray-400 p-2 rounded-md flex flex-col align-self: center'>
-      <%= image_tag map(@property.lat, @property.lon) %>
+      <%= image_tag(map(@property.lat, @property.lon), alt: 'Map') %>
     </div>
 
     <div id='Nearby' class='border border-gray-400 p-2 rounded-md flex flex-grow'>
