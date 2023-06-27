@@ -9,13 +9,13 @@
 
   <div>
     <% if !prop_ids(@user_properties).include?(@property.id)%>
-      <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :post, property: @property, button: "Save" } %>
+      <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :post, property: @property, button: "Save", style: 'inline-block px-2 py-1 text-s font-bold leading-none text-white text-center transition-all duration-200 bg-blue-700 border-2 border-blue-700 shadow-md fold-bold hover:bg-white hover:text-blue-700 rounded'}  %>
     <% else %>
-      <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :delete, property: @property, button: "Unsave" } %>
+      <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :delete, property: @property, button: "Unsave", style: 'inline-block px-2 py-1 text-s font-bold leading-none text-white text-center transition-all duration-200 bg-blue-700 border-2 border-blue-700 shadow-md fold-bold hover:bg-white hover:text-blue-700 rounded' } %>
     <% end %>
   </div>
 
   <div>
-    <%= render partial: 'shared/property_button', locals: { url: property_path(@user.id, @property.id), method: :get, property: @property, button: "More Details" } %>
+    <%= render partial: 'shared/property_button', locals: { url: property_path(@user.id, @property.id), method: :get, property: @property, button: "More Details", style: 'text-blue-700 underline hover:text-blue-900 cursor-pointer' } %>
   </div>
 </div>

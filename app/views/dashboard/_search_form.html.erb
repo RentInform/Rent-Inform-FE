@@ -1,7 +1,7 @@
- <%= form_with url: dashboard_path, method: :get do |f| %>
-     <%= f.search_field :search_street, placeholder: '123 Main Street' %>
-     <%= f.search_field 'Philadelphia', value: 'Philadelphia' %>
-     <%= f.search_field 'PA', value: 'PA' %>
-     <%= f.search_field :search_zip, placeholder: '12345' %>
-     <%= f.submit "Search" %>
-  <% end %>
+<%= form_with url: dashboard_path, method: :get do |f| %>
+    <%= f.search_field :search_street, placeholder: '123 Main Street' %>
+    <%= f.search_field 'Philadelphia', value: 'Philadelphia' %>
+    <%= f.search_field 'PA', value: 'PA' %>
+    <%= f.search_field :search_zip, placeholder: '12345' %>
+    <%= f.submit "Search", class: 'inline-block px-4 py-2 text-s font-bold leading-none text-white text-center transition-all duration-200 bg-blue-700 border-2 border-blue-700 shadow-md fold-bold hover:bg-white hover:text-blue-700 rounded' %>
+<% end %>

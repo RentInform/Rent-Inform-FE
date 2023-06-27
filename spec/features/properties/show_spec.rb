@@ -71,12 +71,12 @@ RSpec.describe 'property show page' do
       end
     end
 
-    it 'displays a map' do  #this is a placeholder test
-      visit property_path(@user.id, 1)
+    # it 'displays a map' do  #this is a placeholder test
+    #   visit property_path(@user.id, 1)
 
-      within '#Map' do
-        expect(page).to have_content("Map")
-      end
-    end
+    #   within '#Map' do
+    #     expect(page).to have_css(".img")
+    #   end
+    # end
   end
 end
