@@ -15,7 +15,6 @@ RSpec.describe SavedFacade do
     it '#property' do
       facade = SavedFacade.new('5', '1')
       property = facade.property
-
       expect(property).to be_a(Property)
       expect(property.street).to eq('123 Main Street')
       expect(property.zip).to eq('19148')
@@ -27,6 +26,14 @@ RSpec.describe SavedFacade do
       expect(property.state).to eq('PA')
       expect(property.lat).to eq('39.96246')
       expect(property.lon).to eq('-75.13755')
+      expect(property.parks).to be_a(Hash)
+
+      parks = property.parks
+      keys = %i[park_1_name park_1_street park_2_name park_2_street park_3_name park_3_street]
+      keys.each do |key|
+        expect(parks).to have_key(key)
+        expect(parks[key]).to be_a(String)
+      end
     end
   end
 end
