@@ -26,7 +26,8 @@ class SavedFacade
         state: property[:data][:attributes][:state],
         lat: property[:data][:attributes][:lat],
         lon: property[:data][:attributes][:lon],
-        id: property[:data][:id]
+        id: property[:data][:id],
+        parks: property[:data][:attributes][:parks]
       }
 
       end
