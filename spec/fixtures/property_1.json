@@ -12,7 +12,15 @@
       "bike_score": "26",
       "safety_score": "93",
       "lat": "39.96246",
-      "lon": "-75.13755"
+      "lon": "-75.13755",
+      "parks": {
+        "park_1_name": "Test 1",
+        "park_1_street": "Test 1 Street",
+        "park_2_name": "Test 2",
+        "park_2_street": "Test 2 Street",
+        "park_3_name": "Test 3",
+        "park_3_street": "Test 3 Street"
+      }
     }
   }
 }

@@ -3,16 +3,17 @@
     "type": "property",
     "id": "2",
     "attributes": {
-        "street": "456 Center Street",
-        "city": "Philadelphia",
-        "state": "PA",
-        "zip": "19148",
-        "walk_score": "55",
-        "transit_score": "97",
-        "bike_score": "73",
-        "safety_score": "65",
-        "lat": "39.96246",
-        "lon": "-75.13755"
+      "street": "456 Center Street",
+      "city": "Philadelphia",
+      "state": "PA",
+      "zip": "19148",
+      "walk_score": "55",
+      "transit_score": "97",
+      "bike_score": "73",
+      "safety_score": "65",
+      "lat": "39.96246",
+      "lon": "-75.13755",
+      "parks": {}
     }
   }
 }

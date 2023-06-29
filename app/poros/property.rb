@@ -9,7 +9,8 @@ class Property
                :state,
                :lat,
                :lon,
-               :id
+               :id,
+               :parks
 
   def initialize(data)
     @street = data[:street]
@@ -23,5 +24,6 @@ class Property
     @lat = data[:lat]
     @lon = data[:lon]
     @id = data[:id]
+    @parks = data[:parks]
   end
 end

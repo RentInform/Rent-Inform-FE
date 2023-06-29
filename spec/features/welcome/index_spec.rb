@@ -39,7 +39,7 @@ RSpec.describe "landing page" do
   it 'has mid page content' do
    within "#mid_page" do
     expect(page).to have_content("Sometimes pictures aren't enough")
-    expect(page).to have_content("Smoke Detectors?")
+    expect(page).to have_content("Up to building code?")
     expect(page).to have_content("Safe neighborhood?")
     expect(page).to have_content("Lifestyle fit?")
    end

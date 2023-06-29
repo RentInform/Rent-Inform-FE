@@ -78,5 +78,19 @@ RSpec.describe 'property show page' do
     #     expect(page).to have_css(".img")
     #   end
     # end
+
+    it 'displays nearby parks' do
+      visit property_path(@user.id, 1)
+
+      within '#Parks' do
+        expect(page).to have_content('Nearby Parks')
+        expect(page).to have_content('Test 1')
+        expect(page).to have_content('Test 1 Street')
+        expect(page).to have_content('Test 2')
+        expect(page).to have_content('Test 2 Street')
+        expect(page).to have_content('Test 3')
+        expect(page).to have_content('Test 3 Street')
+      end
+    end
   end
 end
