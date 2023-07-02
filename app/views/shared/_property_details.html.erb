@@ -1,74 +1,49 @@
-<div class="flex flex-row justify-between">
-  <div class="font-semibold text-xl">
-    <%= @property.street.titleize %>, Philadelphia, PA <%= @property.zip[0..4] %>
-  </div>
-  <div id='save-unsave'>
-    <% if !prop_ids(@user_properties).include?(@property.id)%>
-      <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :post, property: @property, button: "Save", style: 'relative z-40 inline-flex items-center justify-center w-16 h-8 py-1 text-xs font-bold leading-none text-center transition-all duration-200 border-2 border-blue-700 bg-blue-700 rounded shadow-md text-white hover:bg-white hover:text-blue-700' } %>
-    <% else %>
-      <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :delete, property: @property, button: "Unsave", style: 'relative z-40 inline-flex items-center justify-center w-16 h-8 py-1 text-xs font-bold leading-none text-center transition-all duration-200 border-2 border-blue-700 bg-blue-700 rounded shadow-md text-white hover:bg-white hover:text-blue-700' } %>
-    <% end %>
-  </div>
-</div>
-
-<div class="flex flex-row justify-between gap-6 ">
-  <div class='border border-gray-400 p-2 rounded-md flex-1 flex flex-col justify-center items-center gap-4' style='aspect-ratio: 1/1'>
-    <p>Certified to Rent</p>
-    <div class='w-36 h-36 flex justify-center items-center'>
-      <img class='w-24 h-24' src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/512px-Eo_circle_green_checkmark.svg.png?20200417132424" alt="Green circle with white checkmark">
+<div id="Result" class='flex flex-col mt-4 px-6 py-4 rounded-md gap-4 bg-white'>
+  <div class="flex flex-row justify-between">
+    <div class="font-semibold text-2xl">
+      <h1><%= @property.street.titleize %>,</h1>
+      <h1>Philadelphia, PA <%= @property.zip[0..4] %></h1>
     </div>
-    <a class='text-xs text-blue-700 underline hover:text-blue-900' href='https://www.phila.gov/documents/partners-in-good-housing-brochures/'>Learn more</a>
+    <div id='save-unsave'>
+      <% if !prop_ids(@user_properties).include?(@property.id)%>
+        <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :post, property: @property, button: "Save", style: 'relative z-40 inline-flex items-center justify-center w-16 h-8 py-1 text-xs font-bold leading-none text-center transition-all duration-200 border-2 border-blue-700 bg-blue-700 rounded shadow-md text-white hover:bg-white hover:text-blue-700' } %>
+      <% else %>
+        <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :delete, property: @property, button: "Unsave", style: 'relative z-40 inline-flex items-center justify-center w-16 h-8 py-1 text-xs font-bold leading-none text-center transition-all duration-200 border-2 border-blue-700 bg-blue-700 rounded shadow-md text-white hover:bg-white hover:text-blue-700' } %>
+      <% end %>
+    </div>
   </div>
 
-  <div class='border border-gray-400 p-2 rounded-md flex-1 flex flex-col justify-center items-center gap-4'>
-    <p class='text-m'>
-      Bike Score
-    </p>
-    <div class='w-24 h-24 rounded-full flex justify-center items-center' style='background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
-    conic-gradient(<%= @property.bike_score.to_i >= 75 ? 'green' : @property.bike_score.to_i >= 50 ? 'orange' : 'red' %> <%= @property.bike_score %>%, <%= @property.bike_score.to_i >= 75 ? 'lightgreen' : @property.bike_score.to_i >= 50 ? 'bisque' : 'pink' %> 0)' >
-      <p class='justify-center'>
-        <%= @property.bike_score %>
-      </p>
-    </div>
-    <a class='text-xs text-blue-700 underline hover:text-blue-900' href='https://www.walkscore.com/how-it-works/'>Learn more</a>
+  <%= render partial: 'shared/certified_card' %>
+
+  <h2 class='text-xl font-semibold leading-none mt-8'>
+    Scores
+  </h2>
+  
+  <div class="grid grid-cols-4 justify-between gap-2">
+    <%= render partial: 'shared/score_card', locals: { title: "Walk Score", score: @property.walk_score, url_learn_more: 'https://www.walkscore.com/how-it-works/' } %>
+    <%= render partial: 'shared/score_card', locals: { title: "Bike Score", score: @property.bike_score, url_learn_more: 'https://www.walkscore.com/how-it-works/' } %>
+    <%= render partial: 'shared/score_card', locals: { title: "Transit Score", score: @property.transit_score, url_learn_more: 'https://www.walkscore.com/how-it-works/' } %>
+    <%= render partial: 'shared/score_card', locals: { title: "Safety Score", score: (100 - @property.safety_score.to_i), url_learn_more: 'https://geosureglobal.com/' } %>
   </div>
 
-  <div class='border border-gray-400 p-2 rounded-md flex-1 flex flex-col justify-center items-center gap-4'>
-    <p class='text-m'>
-      Walk Score
-    </p>
-  <div class='w-24 h-24 rounded-full flex justify-center items-center' style='background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
-  conic-gradient(<%= @property.walk_score.to_i >= 75 ? 'green' : @property.walk_score.to_i >= 50 ? 'orange' : 'red' %> <%= @property.walk_score %>%, <%= @property.walk_score.to_i >= 75 ? 'lightgreen' : @property.walk_score.to_i >= 50 ? 'bisque' : 'pink' %> 0)' >
-    <p class='justify-center'>
-      <%= @property.walk_score %>
-    </p>
-    </div>
-    <a class='text-xs text-blue-700 underline hover:text-blue-900' href='https://www.walkscore.com/how-it-works/'>Learn more</a>
-  </div>
+  <div id='Parks' class='w-full'>
+    <h2 class="text-xl font-semibold mt-4 mb-4">Nearby Parks</h2>
 
-  <div class='border border-gray-400 p-2 rounded-md flex-1 flex flex-col justify-center items-center gap-4'>
-    <p class='text-m'>
-      Transit Score
-    </p>
-  <div class='w-24 h-24 rounded-full flex justify-center items-center' style='background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
-  conic-gradient(<%= @property.transit_score.to_i >= 75 ? 'green' : @property.transit_score.to_i >= 50 ? 'orange' : 'red' %> <%= @property.transit_score %>%, <%= @property.transit_score.to_i >= 75 ? 'lightgreen' : @property.transit_score.to_i >= 50 ? 'bisque' : 'pink' %> 0)' >
-    <p class='justify-center'>
-      <%= @property.transit_score %>
-    </p>
+    <div class='shadow-lg border border-gray-200 rounded-md p-4 flex flex-col gap-4'>
+      <% format_parks(@property.parks).each do |park| %>
+        <div class="">
+          <div class='font-bold text-md text-gray-900'>
+            <%= park[:name] %>
+          </div>
+          <div class='text-sm'>
+            <%= park[:street] %>
+          </div>
+        </div>
+      <% end %>
     </div>
-    <a class='text-xs text-blue-700 underline hover:text-blue-900' href='https://www.walkscore.com/how-it-works/'>Learn more</a>
-  </div>
 
-  <div class='border border-gray-400 p-2 rounded-md flex-1 flex flex-col justify-center items-center gap-4'>
-    <p class='text-m'>
-      Safety Score
+    <p class='text-xs mt-4'>
+      To find more parks, activites, and green spaces near this address, visit the Parks & Recreation <a class='text-xs text-blue-700 underline hover:text-blue-900' href='https://www.phila.gov/parks-rec-finder/#/locations'>Park Finder</a>.
     </p>
-  <div class='w-24 h-24 rounded-full flex justify-center items-center' style='background: radial-gradient(closest-side, white 79%, transparent 80% 100%),
-  conic-gradient(<%= 100 - @property.safety_score.to_i >= 75 ? 'green' : 100 - @property.safety_score.to_i >= 50 ? 'orange' : 'red' %> <%= 100 - @property.safety_score.to_i %>%, <%= 100 - @property.safety_score.to_i >= 75 ? 'lightgreen' : 100 - @property.safety_score.to_i >= 50 ? 'bisque' : 'pink' %> 0)' >
-    <p class='justify-center'>
-      <%= 100 - @property.safety_score.to_i %>
-    </p>
-    </div>
-    <a class='text-xs text-blue-700 underline hover:text-blue-900' href='https://geosureglobal.com/'>Learn more</a>
   </div>
 </div>

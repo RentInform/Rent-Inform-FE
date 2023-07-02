@@ -4,7 +4,7 @@ module ApplicationHelper
   end
 
   def map(lat, lon)
-    "https://www.mapquestapi.com/staticmap/v5/map?locations=#{lat}, #{lon}&size=400, 400&zoom=12&center=#{lat}, #{lon}&defaultMarker=marker-lg-1D4ED8&key=#{ENV['MAPQUEST_KEY']}"
+    "https://www.mapquestapi.com/staticmap/v5/map?locations=#{lat}, #{lon}&size=1000, 1000&zoom=13&center=#{lat}, #{lon}&defaultMarker=marker-lg-2b6bb0&key=#{ENV['MAPQUEST_KEY']}"
   end
 
   def format_parks(parks)
