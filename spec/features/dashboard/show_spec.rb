@@ -284,7 +284,7 @@ RSpec.describe 'dashboard show page' do
 
       visit dashboard_path
 
-      expect(page).to have_content('Save a property to view it here!')
+      expect(page).to have_content("No properties saved... yet!\nSearch and save a property to view it here")
     end
 
     it 'does not render property if no result is found' do
