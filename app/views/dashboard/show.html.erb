@@ -1,54 +1,51 @@
-<div class="flex flex-col gap-12 w-full">
-  <div id='welcome' class="text-xl font-semibold">
+<div class="flex flex-col gap-12 w-full px-20">
+  <div id='welcome' class="text-xl font-semibold mt-12">
     Hey <%= @user.email %>!
   </div>
 
   <div id="find-property" class='w-full'>
-    <div class="text-2xl font-bold">
+    <div class="text-2xl font-bold mb-4">
       Find a Property
     </div>
-    <div id='search-box' class='flex flex-col border border-gray-400 rounded-md p-6 w-full gap-4'>
-      <div id="search" >
-        <%= render partial: 'search_form' %>
-      </div>
-    </div>
-  </div>
+    <div id='search-box' class='flex flex-col w-full gap-4'>
+      <%= render partial: 'search_form' %>
 
-  <div id="Result" class=''>
-    <% if @property.is_a? SearchError %>
-      <div class='px-6 py-4 border border-gray-400 rounded-md'>
-        <p class='font-semibold text-red-400'>
-          Sorry, we can&apos;t find this address in Philadelphia&apos;s Certificate of Rental Suitability database.
-        <p>
-        <p>
-          For more information about this certification and landlord-tenant rights and responsibilities,
-          view the Partners in Good Housing brochure
-          <a class='text-blue-500 hover:text-blue-700 underline'
-             href='https://www.phila.gov/documents/partners-in-good-housing-brochures/'>here</a>.
-        </p>
+      <div id="Result" class=''>
+        <% if @property.is_a? SearchError %>
+          <div class='p-6 border border-gray-300 rounded-md shadow-md'>
+            <p class='font-lg font-semibold text-red-400'>
+              Sorry, we can&apos;t find this address in Philadelphia&apos;s Certificate of Rental Suitability database.
+            <p>
+            <p class='font-sm text-gray-600'>
+              For more information about this certification and landlord-tenant rights and responsibilities,
+              view the Partners in Good Housing brochure
+              <a class='text-blue-500 hover:text-blue-700 underline'
+                href='https://www.phila.gov/documents/partners-in-good-housing-brochures/'>here</a>.
+            </p>
+          </div>
+        <% elsif @property.is_a? Property %>
+            <%= render partial: 'result_property' %>
+        <% end %>
       </div>
-    <% elsif @property.is_a? Property %>
-      <div class="text-2xl font-bold">
-        About <%= @property.street.titleize %>
-      </div>
-      <div class='flex flex-col px-6 py-4 border border-gray-400 rounded-md gap-4'>
-        <%= render partial: 'result_property' %>
-      </div>
-    <% end %>
+    </div>    
   </div>
-
 
   <div id="Saved">
-    <div class="text-2xl font-bold">
+    <div class="text-2xl font-bold mb-4">
       Saved Properties
     </div>
-    <div class='border border-gray-400 rounded-lg'>
+    <div class=''>
       <% if @user_properties.empty? %>
-        <div class="text-lg">
-          Save a property to view it here!
+        <div class='border border-gray-300 rounded-lg w-full p-4'>
+          <div class="text-lg font-semibold">
+            No properties saved... yet!
+          </div>
+          <div class="text-sm text-gray-600">
+            Search and save a property to view it here
+          </div>
         </div>
       <% else %>
-        <div class='flex justify-around p-4'>
+        <div class='grid grid-cols-3 gap-4'>
           <% @user_properties.each do |property|%>
               <%= render partial: 'saved_property', locals: { property: property } %>
           <% end %>
