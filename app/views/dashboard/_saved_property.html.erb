@@ -4,7 +4,7 @@
       <h1><%= property.street.titleize %></h1>
       <h1>Philadelphia, PA <%= property.zip[0..4] %></h1>
     </div>
-    <%= render partial: 'shared/property_button', locals: { url: user_properties_path, method: :delete, property: property, button: "Unsave", style: 'inline-block px-2 py-1 text-s font-bold leading-none text-white text-center transition-all duration-200 bg-blue-700 border-2 border-blue-700 shadow-md fold-bold hover:bg-white hover:text-blue-700 rounded' } %>
+    <%= render partial: 'shared/save_unsave_button', locals: { url: user_properties_path, method: :delete, property: property, button: "Unsave" } %>
   </div>
   <div>
     <%= render partial: 'shared/property_button', locals: { url: property_path(@user.id, property.id), method: :get, property: property, button: "More Details", style: 'text-blue-600 underline hover:text-blue-900 cursor-pointer' } %>
