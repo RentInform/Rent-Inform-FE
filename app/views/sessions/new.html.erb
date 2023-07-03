@@ -5,7 +5,7 @@
         Welcome back
       </div>
       
-      <%= render partial: 'shared/google_button' %>
+      <%= render partial: 'shared/google_button', locals: { path: '/auth/google_oauth2' } %>
 
       <div id='sign-up' class='text-sm'>
         Don't have an account?

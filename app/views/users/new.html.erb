@@ -4,8 +4,8 @@
     <div id='title' class='text-4xl font-bold'>
       Find your home
     </div>
-    
-    <%= render partial: 'shared/google_button' %>
+
+    <%= render partial: 'shared/google_button', locals: { path: 'https://accounts.google.com/signup/v2/createaccount?biz=false' } %>
 
     <div id='login' class='text-sm'>
       Already have an account?
