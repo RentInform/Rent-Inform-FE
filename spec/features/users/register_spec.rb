@@ -31,6 +31,6 @@ RSpec.describe "user registration" do
     end
 
     visit login_path
-    expect(page).to have_content('RentInform')
+    expect(page).to have_content('Welcome back')
   end
 end

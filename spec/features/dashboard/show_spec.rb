@@ -207,8 +207,8 @@ RSpec.describe 'dashboard show page' do
         expect(page).to have_content('123 Main Street')
 
         within '#property-1' do
-          expect(page).to_not have_button 'Save'
-          expect(page).to have_button 'Unsave'
+          expect(page).to_not have_css 'svg.save'
+          expect(page).to have_css 'svg.unsave'
         end
       end
     end
@@ -229,7 +229,7 @@ RSpec.describe 'dashboard show page' do
       visit dashboard_path
 
       within '#property-1' do
-        click_button 'Unsave'
+        page.find('svg.unsave').click
       end
 
       stub_request(:get, 'https://sheltered-harbor-92742.herokuapp.com/api/v0/user_properties?user_id=420')
