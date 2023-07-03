@@ -6,7 +6,7 @@ RSpec.describe "landing page" do
   end
 
   it 'has RentInform on the top of the screen' do
-    expect(page).to have_content("RentInform")
+    expect(page).to have_css("img.logo")
   end
 
   it 'has a link to log in' do
@@ -33,7 +33,7 @@ RSpec.describe "landing page" do
     end
 
     expect(current_path).to eq(sign_up_path)
-    expect(page).to have_content('RentInform')
+    expect(page).to have_content('Find your home')
   end
 
   it 'has mid page content' do
@@ -47,7 +47,8 @@ RSpec.describe "landing page" do
 
   it 'has bottom page content' do
     within "#bottom_page" do
-      expect(page).to have_content("With RentInform")
+      expect(page).to have_content("With")
+      expect(page).to have_css("img.logo")
       expect(page).to have_content("City Code Compliance Check")
       expect(page).to have_content("Walk Score")
       expect(page).to have_content("Bike Score")
@@ -61,7 +62,7 @@ RSpec.describe "landing page" do
     end
 
     expect(current_path).to eq(sign_up_path)
-    expect(page).to have_content('RentInform')
+    expect(page).to have_content('Find your home')
   end
 
   it 'sign up link takes you to sign up page' do
@@ -70,7 +71,7 @@ RSpec.describe "landing page" do
     end
 
     expect(current_path).to eq(sign_up_path)
-    expect(page).to have_content('RentInform')
+    expect(page).to have_content('Find your home')
   end
 
   it 'login link takes you to login page' do
@@ -79,6 +80,6 @@ RSpec.describe "landing page" do
     end
 
     expect(current_path).to eq(login_path)
-    expect(page).to have_content('RentInform')
+    expect(page).to have_content('Welcome back')
   end
 end
