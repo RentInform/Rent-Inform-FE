@@ -4,9 +4,9 @@
     <div id='title' class='text-4xl font-bold'>
       Find your home
     </div>
-    <div id='google-link'>
-      <a href='https://accounts.google.com/signup/v2/createaccount?biz=false'><img class='w-full hover:shadow-xl' src="https://developers.google.com/static/identity/images/btn_google_signin_light_normal_web.png"></a>
-    </div>
+    
+    <%= render partial: 'shared/google_button' %>
+
     <div id='login' class='text-sm'>
       Already have an account?
       <a href='/login' class='text-blue-700 underline hover:text-blue-900'>Log in</a>
