@@ -59,7 +59,7 @@ RSpec.describe 'dashboard show page' do
     it 'has a find property subheader' do
       visit dashboard_path
       within'#find-property' do
-        expect(page).to have_content('Find a Property')
+        expect(page).to have_content('Find a Compliant Property')
       end
     end
 
