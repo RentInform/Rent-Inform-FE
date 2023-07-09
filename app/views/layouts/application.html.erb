@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>RentInform</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -18,10 +18,8 @@
     <% flash.each do |type, msg| %>
       <%= content_tag :div, msg, class: type %>
     <% end %>
-    <%# <div class="container mx-auto mt-28 px-5 flex"> %>
     <div class="mt-20">
       <%= yield %>
     </div>
-    <%# </div> %>
   </body>
 </html>
