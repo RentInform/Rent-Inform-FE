@@ -124,14 +124,15 @@ To demo RentInform on your local machine, follow these steps:
 2. Follow instructions in the backend repo `README`
 
 ### Front End Repository
-1. clone this repo `git clone git@github.com:RentInform/Rent-Inform-FE.git`
-2. Navigate to the local repository: `cd Rent-Inform-FE`
-3. Run: `bundle install`
-4. Run: `rails db:{create,migrate}`
-5. Run: `bundle exec figaro install`
-6. Add `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `NEW_RELIC_LICENSE_KEY` to `config/application.yml` file 
-7. Run: `rails s` to start rails server
-8. Visit: http://localhost:5000/
+1. Clone this repo `git clone git@github.com:RentInform/Rent-Inform-FE.git`
+2. Register for a MapQuest API Key [here](https://developer.mapquest.com/documentation/)
+3. Navigate to the local repository: `cd Rent-Inform-FE`
+4. Run: `bundle install`
+5. Run: `rails db:{create,migrate}`
+6. Run: `bundle exec figaro install`
+7. Add `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, `MAPQUEST_KEY`, and `NEW_RELIC_LICENSE_KEY` to `config/application.yml` file 
+8. Run: `rails s` to start rails server
+9. Visit: http://localhost:5000/
 
 ### Prerequisites
 - Ruby Version 3.1.1
