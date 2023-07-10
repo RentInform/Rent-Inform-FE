@@ -80,9 +80,9 @@ RentInform is a civic data tool designed to help prospective Philadelphia renter
 
 The front end application handles user interaction through the browser, and is built on Rails with HTML and CSS styling. It is responsible for user authentication and authorization, and consumes RESTful endpoints exposed through the back end application to deliver data about search results, saved properties, and property details to the views. The front end is also responsible for passing specific data through via JSON requests to perform CRUD actions in the back end database (ex. saving a property for a specific user).
 
-- [Production Website](https://mysterious-escarpment-07313.herokuapp.com/)
+- [Production Website](https://rent-inform-36792dcf8db2.herokuapp.com/)
 - [Backend Service](https://sheltered-harbor-92742.herokuapp.com/)
-  - To reach endpoint append `/api/v0/search?street='123-main-street'&zip='12345'`
+  - To reach endpoint append `/api/v0/search?street='123-main-street'&zip='12345'` to URL linked above
   - See more endpoints [here](https://github.com/RentInform/BE-Rent-Inform)
 - Github repositories:
   * Front End: [![Github][Github]][project-fe-gh-url]
@@ -225,6 +225,12 @@ As part of the Consultancy project requirements, the RentInform team challenged 
 <!-- ROADMAP -->
 ## Roadmap
 
+Features added to MVP 2.0 as of July 2023:
+* Build out property details page for displaying more information about property to users
+* Add map with address marker to property details page
+* Add information about nearby parks to property details page
+* Update UI to improve accessibility and design
+  
 Additional features, functionality, and potential refactors:
 * Standard user registration and log in (to be added to the OAuth workflow)
 * Two-factor authentication
@@ -233,7 +239,7 @@ Additional features, functionality, and potential refactors:
 * Expanded error handling 
   * Could potentially include rescuing from standard Rails errors
 * Implement more details for the user through additional external API calls
-  * Amenities: Grocery stores, schools, libraries, parks
+  * Amenities: Grocery stores, schools, libraries
   * Commute time to workplace from searched property
   * Aggregate score for the property from within the application
 * Allow a user to add notes for the property
