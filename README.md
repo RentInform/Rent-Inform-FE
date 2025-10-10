@@ -81,10 +81,6 @@ RentInform is a civic data tool designed to help prospective Philadelphia renter
 
 The front end application handles user interaction through the browser, and is built on Rails with HTML and CSS styling. It is responsible for user authentication and authorization, and consumes RESTful endpoints exposed through the back end application to deliver data about search results, saved properties, and property details to the views. The front end is also responsible for passing specific data through via JSON requests to perform CRUD actions in the back end database (ex. saving a property for a specific user).
 
-- [Production Website](https://rent-inform-36792dcf8db2.herokuapp.com/)
-- [Backend Service](https://sheltered-harbor-92742.herokuapp.com/)
-  - To reach endpoint append `/api/v0/search?street='123-main-street'&zip='12345'` to URL linked above
-  - See more endpoints [here](https://github.com/RentInform/BE-Rent-Inform)
 - Github repositories:
   * Front End: [![Github][Github]][project-fe-gh-url]
   * Back End: [![Github][Github]][project-be-gh-url]
